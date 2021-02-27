@@ -1,10 +1,10 @@
-from sklearn import svm
-from sklearn.svm import SVC
 import argparse
 import os
 import joblib
 import numpy as np
 import pandas as pd
+from sklearn import svm
+from sklearn.svm import SVC
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -24,7 +24,8 @@ run = Run.get_context()
 
 
 def clean_data(data):
-    """Function to clean data by applying data preprocessing techniques. # Remove columns with no variation
+    """Remove time column before training because there is no linear correlation between follow-up period and survival,
+    and we cannot get a time value for new patients after deployment.
         
     Args:
         None
@@ -37,17 +38,7 @@ def clean_data(data):
     
     df = data.to_pandas_dataframe().dropna()
 
-    # df["UnderCon"] = 0
-    # df.loc[((df["anaemia"] == 1) | (df["diabetes"] == 1) | df["high_blood_pressure"] == 1), "UnderCon"] = 1
-    # df.drop(["anaemia", "diabetes", "high_blood_pressure"], axis = 1, inplace = True)
-    # For label we are selecting DEATH_EVENT
-    # For features we are selecting everything except time 
-    # Drop varibles with less significant correlation with DEATH_EVENT
-    # corr[abs(corr['DEATH_EVENT']) > 0.1]['DEATH_EVENT']
-    # separate target and time variables from predictors
     x_df = df.drop(["DEATH_EVENT", "time"], axis=1)
-    # x_df = df.drop(["creatinine_phosphokinase", "platelets", "sex", "smoking", "time", "DEATH_EVENT"], axis=1)
-    # x_df = df.drop(["anaemia", "creatinine_phosphokinase", "diabetes", "high_blood_pressure", "platelets", "sex", "smoking", "time", "DEATH_EVENT"], axis=1)
    
     y_df = df["DEATH_EVENT"]
     
@@ -82,13 +73,11 @@ def main():
 
     parser.add_argument('--C', type=float, default=1.0, help="Inverse of regularization strength. Smaller values cause stronger regularization")
     parser.add_argument('--kernel', type=str, default='rbf', help='Kernel type to be used in the algorithm')
-    #parser.add_argument('--coef0', type=int, default=0, help="Independent term in kernel function. It is only significant in ‘poly’ and ‘sigmoid’")
 
     args = parser.parse_args()
 
     run.log("Regularization Strength:", np.float(args.C))
     run.log("Kernel:", np.str(args.kernel))
-    #run.log("coef0:", np.int(args.coef0))
 
     # load the dataset
     x, y = clean_data(ds)
@@ -101,7 +90,6 @@ def main():
     x_train = sc.fit_transform(x_train)
 
     # Training a SVM classifier
-    #clf = SVC(C=args.C,coef0=args.coef0)
     clf = SVC(C=args.C,kernel=args.kernel)
     model = train_classifier(clf, x_train, y_train)
 
@@ -110,7 +98,6 @@ def main():
 
     # Save the trained model for current iteration in the outputs folder
     os.makedirs('outputs', exist_ok=True)
-    #joblib.dump(value=model, filename='outputs/hyperdrive_model.joblib')
     joblib.dump(value=model, filename='outputs/hyperdrive_{}_{}'.format(args.C,args.kernel))
 
 # Run the main() function  
