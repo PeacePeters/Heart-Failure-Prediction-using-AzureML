@@ -7,12 +7,6 @@
 ## Project Set Up and Installation
 *OPTIONAL:* If your project has any special installation steps, this is where you should put it. To turn this project into a professional portfolio project, you are encouraged to explain how to set up this project in AzureML.
 
-````automl_settings = {
-    "experiment_timeout_minutes": 30,
-    "max_concurrent_iterations": 5,
-    "primary_metric" : 'AUC_weighted'
-}
-````
 ## Dataset
 
 ### Overview
