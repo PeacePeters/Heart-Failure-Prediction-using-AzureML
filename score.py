@@ -1,8 +1,8 @@
 import json
-import numpy as np
 import os
 import pickle
 import pandas as pd
+import numpy as np
 from azureml.core import Model
 from sklearn.externals import joblib
 
@@ -18,6 +18,9 @@ def init():
         global model
         model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'fitted_model.pkl')
         model = joblib.load(model_path)
+        #model_name = 'heart_failure_automl_model'
+        #model_path = Model.get_model_path(model_name=model_name)
+        #model = joblib.load(model_path)
 
     except Exception as e:
         error = str(e)
