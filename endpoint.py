@@ -18,7 +18,6 @@ def allowSelfSignedHttps(allowed):
 allowSelfSignedHttps(True) # this line is needed if you use self-signed certificate in your scoring service.
 
 # URL for the web service, should be similar to:
-# 'http://8530a665-66f3-49c8-a953-b82a2d312917.eastus.azurecontainer.io/score'
 scoring_uri = 'http://e5bf398f-b130-49f5-893d-8e3c729d8bcb.southcentralus.azurecontainer.io/score'
 # If the service is authenticated, set the key or token
 key = '1fyaYzZZb4v0ouH1azj3iPksgmwxtjur'
@@ -59,13 +58,12 @@ body = str.encode(json.dumps(data))
 
 # URL for the web service
 #url = 'http://5af42fb2-502b-4281-8a72-64f5722f362f.southcentralus.azurecontainer.io/score'
-scoring_uri = 'http://e5bf398f-b130-49f5-893d-8e3c729d8bcb.southcentralus.azurecontainer.io/score'
 # If the service is authenticated, set the key or token
-#key = '1fyaYzZZb4v0ouH1azj3iPksgmwxtjur'
 api_key = '' # Replace this with the API key for the web service
+# Set the content type and authorization header if authentication is enabled
 headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
 
-req = urllib.request.Request(url, body, headers)
+#req = urllib.request.Request(url, body, headers)
 
 # Convert to JSON string
 input_data = json.dumps(data)
@@ -81,6 +79,7 @@ headers['Authorization'] = f'Bearer {key}'
 resp = requests.post(scoring_uri, input_data, headers=headers)
 print(resp.json())
 
+# Make the request and display the response
 req = urllib.request.Request(scoring_url, input_data, headers)
 
 try:
