@@ -12,7 +12,7 @@ from azureml.core.run import Run
 from azureml.data.dataset_factory import TabularDatasetFactory
 from time import time
 
-# TODO: Create TabularDataset using TabularDatasetFactory
+# Create TabularDataset using TabularDatasetFactory
 # Data is located at:
 # "https://raw.githubusercontent.com/PeacePeters/Deploy-the-best-model-using-AzureML/main/heart_failure.csv"
 
@@ -68,6 +68,7 @@ def train_classifier(clf, X_train, Y_train):
 
 def main():
     """The main function."""
+    
     # Add arguments to script
     parser = argparse.ArgumentParser()
 
