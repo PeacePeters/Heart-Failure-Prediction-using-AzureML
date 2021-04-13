@@ -12,7 +12,7 @@ In this project, we demonstrate how to use the Azure ML Python SDK to train a mo
 To set this project, we require access to Azure ML Studio. The application flow for the project design is as follows:
 1. Create an Azure ML workspace with a compute instance.
 2. Create an Azure ML compute cluster.
-3. Download the Heart Failure prediction dataset from this repository.
+3. Upload the Heart Failure prediction dataset to Azure ML Studio from this repository.
 4. Import the notebooks and scripts attached in this repository to the Notebooks section in Azure ML Studio or simply clone the repository.
 5. All instructions to run the cells are detailed in the notebooks.
 
