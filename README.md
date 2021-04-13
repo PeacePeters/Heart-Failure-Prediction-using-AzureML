@@ -12,8 +12,8 @@ In this project, we demonstrate how to use the Azure ML Python SDK to train a mo
 To set this project, we require access to Azure ML Studio. The application flow for the project design is as follows:
 1. Create an Azure ML workspace with a compute instance.
 2. Create an Azure ML compute cluster.
-3. Upload the dataset to Azure ML Studio by downloading the data file from this repository.
-4. Import the notebooks and scripts attached in this repository in the Notebooks section in Azure ML Studio or simply clone the repository.
+3. Download the Heart Failure prediction dataset from this repository.
+4. Import the notebooks and scripts attached in this repository to the Notebooks section in Azure ML Studio or simply clone the repository.
 5. All instructions to run the cells are detailed in the notebooks.
 
 ## Dataset
@@ -21,8 +21,20 @@ To set this project, we require access to Azure ML Studio. The application flow 
 ### Overview
 *TODO*: Explain about the data you are using and where you got it from.
 
+In this project, we analyze The [Heart Failure Prediction](https://archive.ics.uci.edu/ml/datasets/Heart+failure+clinical+records) dataset containing the medical records of 299 heart failure patients collected at the Faisalabad Institute of Cardiology and at the Allied Hospital in Faisalabad (Punjab, Pakistan), during April–December 2015. The patients, who were aged 40 years and above, comprise of 105 women and 194 men who have all previously had heart failures.
+
+The dataset contains 13 features, which report clinical, body, and lifestyle information and is use as the training data for predicting heart failure risks. This results in prediction models, which if accurate, can potentially be used to help hospitals in assessing the severity of patients with cardiovascular diseases. 
+
+Additional information about this dataset can be found in the original dataset curators [publication](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0181001).
+
 ### Task
 *TODO*: Explain the task you are going to be solving with this dataset and the features you will be using for it.
+
+In this project, we are going to predict mortality by heart failure with the use of AutoML. Heart failure is a common event caused by Cardiovascular diseases (CVDs), and it occurs when the heart cannot pump enough blood to meet the needs of the body.
+
+The [Heart Failure Prediction](https://archive.ics.uci.edu/ml/datasets/Heart+failure+clinical+records) dataset is used as the training data for this task. It comprises of 299 heart failure patients and 12 features, which report clinical, body, and lifestyle information.
+
+The task here is to train a binary classification model that predict the target column DEATH_EVENT, which indicates if the patient died or survived before the end of the follow-up period, based on the information provided by the other 11 columns (predictors). The time feature was dropped before training since we cannot get a time value for new patients after deployment. Prediction models based on these predictors, if accurate, can potentially be used to help hospitals in assessing the severity of patients with cardiovascular diseases.
 
 ### Access
 *TODO*: Explain how you are accessing the data in your workspace.
@@ -55,3 +67,7 @@ To set this project, we require access to Azure ML Studio. The application flow 
 
 ## Standout Suggestions
 *TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+
+## Citation
+
+Davide Chicco, Giuseppe Jurman: "Machine learning can predict survival of patients with heart failure from serum creatinine and ejection fraction alone". BMC Medical Informatics and Decision Making 20, 16 (2020)[Article](https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-020-1023-5#Sec13).
