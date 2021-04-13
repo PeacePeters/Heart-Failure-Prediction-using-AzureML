@@ -3,9 +3,12 @@
 # Heart Failure Prediction using Microsoft Azure
 
 *TODO:* Write a short introduction to your project.
+In this project, we demonstrate how to use the Azure ML Python SDK to train a model to predict mortality by heart failure using Azure AutoML and Hyperdrive services. After training, we are going to deploy the best model and evaluate the model endpoint by consuming it.
 
 ## Project Set Up and Installation
 *OPTIONAL:* If your project has any special installation steps, this is where you should put it. To turn this project into a professional portfolio project, you are encouraged to explain how to set up this project in AzureML.
+To set this project, we require access to Azure ML Studio. The application flow for the project design is as follows:
+1. Create an Azure ML workspace with a compute instance
 
 ## Dataset
 
