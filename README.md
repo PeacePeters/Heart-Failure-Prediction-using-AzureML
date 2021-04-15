@@ -32,7 +32,7 @@ Additional information about this dataset can be found in the original dataset c
 
 The task here is to predict mortality due to heart failure. Heart failure is a common event caused by Cardiovascular diseases (CVDs), and  it occurs when the heart cannot pump enough blood to meet the needs of the body. The main reasons behind heart failure include diabetes, high blood pressure, or other heart conditions or diseases. By applying machine learning procedure to this analysis, we will have a predictive model that can potentially impact clinical practice, becoming a new supporting tool for physicians when assessing the increased risk of mortality among heart failure patients.
 
-The objective of the task is to train a binary classification model that predict the target column "<b>DEATH_EVENT</b>”, which indicates if a heart failure patient will survive or not before the end of the follow-up period, based on the information provided by the other 11 features (predictors). The time feature was dropped before training since we cannot get a time value for new patients after deployment. The predictors variables are:
+The objective of the task is to train a binary classification model that predict the target column "<b>DEATH_EVENT</b>”, which indicates if a heart failure patient will survive or not before the end of the follow-up period, based on the information provided by the other 11 features (predictors). The "<i>time</i>” feature was dropped before training since we cannot get a time value for new patients after deployment. The predictors variables are:
 
 ### Access
 *TODO*: Explain how you are accessing the data in your workspace.
