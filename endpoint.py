@@ -21,30 +21,30 @@ allowSelfSignedHttps(True) # this line is needed if you use self-signed certific
 data = {"data":
         [
           {
-            "Age":75,
-            "anaemia":0,
-            "creatinine_phosphokinase":582,
-            "diabetes":0,
-            "ejection_fraction":20,
-            "high_blood_pressure":1,
-            "platelets":265000,
-            "serum_creatinine":1.9,
-            "serum_sodium":130,
-            "sex":1,
-            "smoking":0,
+            'Age':75,
+            'anaemia':0,
+            'creatinine_phosphokinase':582,
+            'diabetes':0,
+            'ejection_fraction':20,
+            'high_blood_pressure':1,
+            'platelets':265000,
+            'serum_creatinine':1.9,
+            'serum_sodium':130,
+            'sex':1,
+            'smoking':0,
           },
           {
-            "Age":49,
-            "anaemia":1,
-            "creatinine_phosphokinase":80,
-            "diabetes":0,
-            "ejection_fraction":30,
-            "high_blood_pressure":1,
-            "platelets":427000,
-            "serum_creatinine":0,
-            "serum_sodium":138,
-            "sex":0,
-            "smoking":0
+            'Age':49,
+            'anaemia':1,
+            'creatinine_phosphokinase':80,
+            'diabetes':0,
+            'ejection_fractio':30,
+            'high_blood_pressure':1,
+            'platelets':427000,
+            'serum_creatinine':0,
+            'serum_sodium':138,
+            'sex':0,
+            'smoking':0
           }
         ]
     }
