@@ -13,7 +13,7 @@ To set this project, we require access to Azure ML Studio. The application flow 
 1. Create an Azure ML workspace with a compute instance.
 2. Create an Azure ML compute cluster.
 3. Upload the Heart Failure prediction dataset to Azure ML Studio from this repository.
-4. Import the notebooks and scripts attached in this repository to the Notebooks section in Azure ML Studio or simply clone the repository.
+4. Import the notebooks and scripts attached in this repository to the Notebooks section in Azure ML Studio.
 5. All instructions to run the cells are detailed in the notebooks.
 
 ## Dataset
@@ -21,7 +21,7 @@ To set this project, we require access to Azure ML Studio. The application flow 
 ### Overview
 *TODO*: Explain about the data you are using and where you got it from.
 
-In this project, we analyze The [Heart Failure Prediction](https://archive.ics.uci.edu/ml/datasets/Heart+failure+clinical+records) dataset containing the medical records of 299 heart failure patients collected at the Faisalabad Institute of Cardiology and at the Allied Hospital in Faisalabad (Punjab, Pakistan), during April–December 2015. The patients, who were aged 40 years and above, comprise of 105 women and 194 men who have all previously had heart failures.
+In this project, we analyze the [Heart Failure Prediction](https://archive.ics.uci.edu/ml/datasets/Heart+failure+clinical+records) dataset containing the medical records of 299 heart failure patients collected at the Faisalabad Institute of Cardiology and at the Allied Hospital in Faisalabad (Punjab, Pakistan), during April–December 2015. The patients, who were aged 40 years and above, comprise of 105 women and 194 men who have all previously had heart failures.
 
 The dataset contains 13 features, which report clinical, body, and lifestyle information and is use as the training data for predicting heart failure risks. This results in prediction models, which if accurate, can potentially be used to help hospitals in assessing the severity of patients with cardiovascular diseases. 
 
