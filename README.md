@@ -30,11 +30,9 @@ Additional information about this dataset can be found in the original dataset c
 ### Task
 *TODO*: Explain the task you are going to be solving with this dataset and the features you will be using for it.
 
-In this project, we are going to predict mortality by heart failure with the use of AutoML. Heart failure is a common event caused by Cardiovascular diseases (CVDs), and it occurs when the heart cannot pump enough blood to meet the needs of the body.
+The task here is to predict mortality due to heart failure. Heart failure is a common event caused by Cardiovascular diseases (CVDs), and  it occurs when the heart cannot pump enough blood to meet the needs of the body. The main reason behind heart failure include diabetes, high blood pressure, or other heart conditions or diseases.
 
-The [Heart Failure Prediction](https://archive.ics.uci.edu/ml/datasets/Heart+failure+clinical+records) dataset is used as the training data for this task. It comprises of 299 heart failure patients and 12 features, which report clinical, body, and lifestyle information.
-
-The task here is to train a binary classification model that predict the target column DEATH_EVENT, which indicates if the patient died or survived before the end of the follow-up period, based on the information provided by the other 11 columns (predictors). The time feature was dropped before training since we cannot get a time value for new patients after deployment. Prediction models based on these predictors, if accurate, can potentially be used to help hospitals in assessing the severity of patients with cardiovascular diseases.
+The objective of the task is to train a binary classification model that predict the target column DEATH_EVENT, which indicates if a heart failure patient will survive or not before the end of the follow-up period, based on the information provided by the other 11 features (predictors). The time feature was dropped before training since we cannot get a time value for new patients after deployment. The predictors variables are:
 
 ### Access
 *TODO*: Explain how you are accessing the data in your workspace.
