@@ -32,10 +32,34 @@ Additional information about this dataset can be found in the original dataset c
 
 The task here is to predict mortality due to heart failure. Heart failure is a common event caused by Cardiovascular diseases (CVDs), and  it occurs when the heart cannot pump enough blood to meet the needs of the body. The main reasons behind heart failure include diabetes, high blood pressure, or other heart conditions or diseases. By applying machine learning procedure to this analysis, we will have a predictive model that can potentially impact clinical practice, becoming a new supporting tool for physicians when assessing the increased risk of mortality among heart failure patients.
 
-The objective of the task is to train a binary classification model that predict the target column "<b>DEATH_EVENT</b>”, which indicates if a heart failure patient will survive or not before the end of the follow-up period, based on the information provided by the other 11 features (predictors). The "<i>time</i>” feature was dropped before training since we cannot get a time value for new patients after deployment. The predictors variables are:
+The objective of the task is to train a binary classification model that predict the target column <b>DEATH_EVENT</b>, which indicates if a heart failure patient will survive or not before the end of the follow-up period. This is based on the information provided by the 11 clinical features (or risk factors). The <b>time</b> feature was dropped before training since we cannot get a time value for new patients after deployment. The predictors variables are as follows:
+
+1. Age: age of patient (years)
+2. Anaemia: Decrease of red blood cells or hemoglobin. It has a value of 1 or 0 with 1 being the patient does have this condition
+3. Creatinine Phosphokinase: Level of the CPK enzyme in the blood (mcg/L)
+4. Diabetes:  Is a 1 or 0 - whether the patient suffers from diabetes or not 
+5. Ejection Fraction: Percentage of blood leaving the heart at each contraction (percentage)
+6. High Blood Pressure: Is a 1 or 0 - If the patient has hypertension 
+7. Platelets: Platelets in the blood (kiloplatelets/mL) 
+8. Serum Creatinine: Level of serum creatinine in the blood (mg/dL)
+9. Serum Sodium: Level of serum sodium in the blood (mEq/L)
+10. Sex: Woman or man (binary)
+11. Smoking: If the patient smokes or not
+12. Time: Follow-up period (days)
+
+Target variable - Death Event: If the patient died during the follow-up period
+Death Event = 1 for dead patients and Death Event = 0 for survived patients
 
 ### Access
 *TODO*: Explain how you are accessing the data in your workspace.
+
+The data for this project can be accessed in our workspace through the following steps:
+
+Download the data from UCI Machine learning repository or the uploaded dataset in this GitHub repository
+
+Register the dataset either using AzureML SDK or AzureML Studio using a weburl or from local files.
+
+For this project, we registered the dataset in our workspace using a weburl in Azure SDK, retrieving the data from the csv file using "<b>TabularDatasetFactory</b>” Class .
 
 ## Automated ML
 *TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
