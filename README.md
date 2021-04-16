@@ -65,7 +65,7 @@ The data for this project can be accessed in our workspace through the following
 *TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
 
 We have used following configuration for AutoML.
-```
+```ruby
 automl_settings = {
     "experiment_timeout_minutes": 30,
     "max_concurrent_iterations": 5,
