@@ -21,9 +21,9 @@ To set this project, we require access to Azure ML Studio. The application flow 
 ### Overview
 *TODO*: Explain about the data you are using and where you got it from.
 
-In this project, we analyze the [Heart Failure Prediction](https://archive.ics.uci.edu/ml/datasets/Heart+failure+clinical+records) dataset containing the medical records of 299 heart failure patients collected at the Faisalabad Institute of Cardiology and at the Allied Hospital in Faisalabad (Punjab, Pakistan), during April–December 2015. The patients, who were aged 40 years and above, comprise of 105 women and 194 men who have all previously had heart failures.
+The Heart [Heart Failure Prediction](https://archive.ics.uci.edu/ml/datasets/Heart+failure+clinical+records) dataset is used for assessing the severity of patients with heart failure. It contains the medical records of 299 heart failure patients collected at the Faisalabad Institute of Cardiology and at the Allied Hospital in Faisalabad (Punjab, Pakistan), during April–December 2015. The patients, who are aged 40 years and above, comprise of 105 women and 194 men who have all previously had heart failures.
 
-The dataset contains 13 features, which report clinical, body, and lifestyle information and is use as the training data for predicting heart failure risks. This results in prediction models, which if accurate, can potentially be used to help hospitals in assessing the severity of patients with cardiovascular diseases. 
+The dataset contains 13 features, which report clinical, body, and lifestyle information and is use as the training data for predicting heart failure risks. Regarding the dataset imbalance, the survived patients (death event = 0) are 203, while the dead patients (death event = 1) are 96. 
 
 Additional information about this dataset can be found in the original dataset curators [publication](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0181001).
 
