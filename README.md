@@ -1,6 +1,6 @@
 *NOTE:* This file is a template that you can use to create the README for your project. The *TODO* comments below will highlight the information you should be sure to include.
 
-# Heart Failure Prediction using Microsoft Azure
+# Heart Failure Prediction using AzureML
 
 *TODO:* Write a short introduction to your project.
 
@@ -86,16 +86,25 @@ As shown in above code snippet, the task for this machine learning problem is a 
 
 As shown in above code snippet, the AutoML settings are: 
 
-The <i>task</i> for this machine learning problem is a classification
-The <i>primary_metric</i> used is AUC weighted, which is more appropriate than accuracy since the dataset is moderately imbalanced (67.89% negative elements and 32.11% positive elements). 
-<i>n_cross_validation</i> of 5 folds rather than 3 is used which gives a better performance. 
-An <i>experiment_timeout_minutes</i> of 30 is specified to constrain usage.
-The <i>max_concurrent_iterations</i> to be executed in parallel during training is set to 5.
+* The <i>task</i> for this machine learning problem is a classification
+* The <i>primary_metric</i> used is AUC weighted, which is more appropriate than accuracy since the dataset is moderately imbalanced (67.89% negative elements and 32.11% positive elements). 
+* <i>n_cross_validation</i> of 5 folds rather than 3 is used which gives a better performance. 
+* An <i>experiment_timeout_minutes</i> of 30 is specified to constrain usage.
+* The <i>max_concurrent_iterations</i> to be executed in parallel during training is set to 5.
 
 ### Results
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
 
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+
+The Best model is <b>VotingEnsemble</b> with an AUC of <b> 87.38 </b>
+
+Model hyper-parameters used for VotingEnsemble are shown below:
+
+### Improvements for autoML
+
+1. Increase experiment timeout to allow for model experimentation and setting featurization as auto.
+2. Remove some features from our dataset which are collinear or not that important in making the decision.
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
