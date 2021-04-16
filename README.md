@@ -82,6 +82,16 @@ automl_config = AutoMLConfig(compute_target=compute_target,
                             )
 ```
 
+As shown in above code snippet, the task for this machine learning problem is a classification, with the primary metric AUC weighted, which is more appropriate than accuracy since the dataset is moderately imbalanced (67.89% negative elements and 32.11% positive elements).
+
+As shown in above code snippet, the AutoML settings are: 
+
+The <i>task</i> for this machine learning problem is a classification
+The <i>primary_metric</i> used is AUC weighted, which is more appropriate than accuracy since the dataset is moderately imbalanced (67.89% negative elements and 32.11% positive elements). 
+<i>n_cross_validation</i> of 5 folds rather than 3 is used which gives a better performance. 
+An <i>experiment_timeout_minutes</i> of 30 is specified to constrain usage.
+The <i>max_concurrent_iterations</i> to be executed in parallel during training is set to 5.
+
 ### Results
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
 
