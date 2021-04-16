@@ -163,6 +163,15 @@ As shown in diagram, the VotingEnsemble model of AutoML performed better with an
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 
+The following steps are required to deploy a model using Azure SDK:
+
+1. Register the dataset using SDK
+2. Find the best model using Automl
+3. Use the environment of automl's best_run or create a custom environment
+4. Use the score.py file generated when the model is trained for deployment and evaluation. The scoring script describes the input data the model endpoint accepts. 
+5. Deploy the model using any of the deployment choices - ACI, AKS or local. For our project, we deploy the model as webservice using Azure Container Instance with ``` cpu_cores = 1 ```, ``` memory_gb = 1 ``` and application insights enabled.
+6. For inferencing, pass the sample test data in json format to query the endpoint. The sample input data is provided in the [endpoint.py]() script where we have to specify our endpoint URL and authentication key to make successful rest api call.
+
 ## Screen Recording
 *TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
 - A working model
