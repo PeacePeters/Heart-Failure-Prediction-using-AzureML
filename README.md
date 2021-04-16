@@ -103,7 +103,7 @@ Model hyper-parameters used for VotingEnsemble are shown below:
 ### Improvements for autoML
 
 1. Increase experiment timeout to allow for model experimentation.
-2. Remove some features from our dataset which are collinear or not that important in making the decision.
+2. Remove some features from our dataset that are collinear or not important in making the decision.
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
@@ -134,6 +134,19 @@ We applied a <b>bandit</b> early termination policy to evaluate our benchmark me
 
 ### Results
 *TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
+
+The SVM model achieved an AUC value of 0.871 with the following parameters:
+
+Hyperparameter | Value |
+ | ------------- | -------------
+Regularization Strength (C) | 0.7
+Kernel | rbf
+
+### Improvements for hyperDrive
+
+* We could improve this model by performing more feature engineering during data preparation phase.
+* Adding more hyperparameters to be tuned can increase the model performance.
+* Increasing max total runs to try a lot more combinations of hyperparameters, though this could have an impact on cost and training duration. 
 
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
