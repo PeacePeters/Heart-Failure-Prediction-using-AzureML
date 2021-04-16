@@ -1,6 +1,6 @@
 *NOTE:* This file is a template that you can use to create the README for your project. The *TODO* comments below will highlight the information you should be sure to include.
 
-# Heart Failure Prediction using Microsoft Azure
+# Heart Failure Prediction using AzureML
 
 *TODO:* Write a short introduction to your project.
 
@@ -55,19 +55,56 @@ Death Event = 1 for dead patients and Death Event = 0 for survived patients
 
 The data for this project can be accessed in our workspace through the following steps:
 
-Download the data from UCI Machine learning repository or the uploaded dataset in this GitHub repository
+* Download the data from [UCI Machine learning repository](https://archive.ics.uci.edu/ml/datasets/Heart+failure+clinical+records) or the [uploaded dataset](https://github.com/PeacePeters/Heart-Failure-Prediction-using-AzureML/blob/main/heart_failure.csv) in this GitHub repository
 
-Register the dataset either using AzureML SDK or AzureML Studio using a weburl or from local files.
+* Register the dataset either using AzureML SDK or AzureML Studio using a weburl or from local files.
 
-For this project, we registered the dataset in our workspace using a weburl in Azure SDK, retrieving the data from the csv file using "<b>TabularDatasetFactory</b>” Class .
+* For this project, we registered the dataset in our workspace using a weburl in Azure SDK, retrieving the data from the csv file using <b>TabularDatasetFactory</b> Class .
 
 ## Automated ML
 *TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
+
+We have used following configuration for AutoML.
+```ruby
+automl_settings = {
+    "experiment_timeout_minutes": 30,
+    "max_concurrent_iterations": 5,
+    "primary_metric" : 'AUC_weighted'
+}
+
+automl_config = AutoMLConfig(compute_target=compute_target,
+                             task="classification",
+                             training_data=dataset,
+                             label_column_name="DEATH_EVENT",
+                             n_cross_validations=5,
+                             debug_log="automl_errors.log",
+                             **automl_settings
+                            )
+```
+
+As shown in above code snippet, the task for this machine learning problem is a classification, with the primary metric AUC weighted, which is more appropriate than accuracy since the dataset is moderately imbalanced (67.89% negative elements and 32.11% positive elements).
+
+As shown in above code snippet, the AutoML settings are: 
+
+* The <i>task</i> for this machine learning problem is a classification
+* The <i>primary_metric</i> used is AUC weighted, which is more appropriate than accuracy since the dataset is moderately imbalanced (67.89% negative elements and 32.11% positive elements). 
+* <i>n_cross_validation</i> of 5 folds rather than 3 is used which gives a better performance. 
+* An <i>experiment_timeout_minutes</i> of 30 is specified to constrain usage.
+* The <i>max_concurrent_iterations</i> to be executed in parallel during training is set to 5.
 
 ### Results
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
 
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+
+The Best model is <b>VotingEnsemble</b> with an AUC of <b> 87.38 </b>
+
+Model hyper-parameters used for VotingEnsemble are shown below:
+
+### Improvements for autoML
+
+1. Increase experiment timeout to allow for model experimentation and setting featurization as auto.
+2. Remove some features from our dataset which are collinear or not that important in making the decision.
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
