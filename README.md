@@ -55,14 +55,32 @@ Death Event = 1 for dead patients and Death Event = 0 for survived patients
 
 The data for this project can be accessed in our workspace through the following steps:
 
-. Download the data from [UCI Machine learning repository](https://archive.ics.uci.edu/ml/datasets/Heart+failure+clinical+records) or the [uploaded dataset](https://github.com/PeacePeters/Heart-Failure-Prediction-using-AzureML/blob/main/heart_failure.csv) in this GitHub repository
+* Download the data from [UCI Machine learning repository](https://archive.ics.uci.edu/ml/datasets/Heart+failure+clinical+records) or the [uploaded dataset](https://github.com/PeacePeters/Heart-Failure-Prediction-using-AzureML/blob/main/heart_failure.csv) in this GitHub repository
 
-. Register the dataset either using AzureML SDK or AzureML Studio using a weburl or from local files.
+* Register the dataset either using AzureML SDK or AzureML Studio using a weburl or from local files.
 
-. For this project, we registered the dataset in our workspace using a weburl in Azure SDK, retrieving the data from the csv file using "<b>TabularDatasetFactory</b>” Class .
+* For this project, we registered the dataset in our workspace using a weburl in Azure SDK, retrieving the data from the csv file using <b>TabularDatasetFactory</b> Class .
 
 ## Automated ML
 *TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
+
+We have used following configuration for AutoML.
+```
+automl_settings = {
+    "experiment_timeout_minutes": 30,
+    "max_concurrent_iterations": 5,
+    "primary_metric" : 'AUC_weighted'
+}
+
+automl_config = AutoMLConfig(compute_target=compute_target,
+                             task="classification",
+                             training_data=dataset,
+                             label_column_name="DEATH_EVENT",
+                             n_cross_validations=5,
+                             debug_log="automl_errors.log",
+                             **automl_settings
+                            )
+```
 
 ### Results
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
