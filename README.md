@@ -148,6 +148,16 @@ Kernel | rbf
 * Adding more hyperparameters to be tuned can increase the model performance.
 * Increasing max total runs to try a lot more combinations of hyperparameters, though this could have an impact on cost and training duration. 
 
+### Automated ML and Hyperdrive Comparison
+
+Key | AutoML | Hyperdrive 
+ | ------------- | ------------- | ------------- 
+Architecture | ![!hyperdrive](./images/scikit-learn-pipeline.jpg) | ![!hyperdrive](./images/automl_pipeline.jpg)
+Accuracy | SVM with 91.47% | VotingEnsemble with 91.66%
+Duration | 18.3 minute | 33.2 minute
+
+As shown in diagram, the VotingEnsemble model of AutoML performed better with an AUC value of 0.9107 compared to 0.8713 in Support Vector Machines through HyperDrive. So we will deploy the AutoML model.
+
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
 ## Model Deployment
