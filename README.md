@@ -32,7 +32,7 @@ Additional information about this dataset can be found in the original dataset c
 
 The task here is to predict mortality due to heart failure. Heart failure is a common event caused by Cardiovascular diseases (CVDs), and  it occurs when the heart cannot pump enough blood to meet the needs of the body. The main reasons behind heart failure include diabetes, high blood pressure, or other heart conditions or diseases. By applying machine learning procedure to this analysis, we will have a predictive model that can potentially impact clinical practice, becoming a new supporting tool for physicians when assessing the increased risk of mortality among heart failure patients.
 
-The objective of the task is to train a binary classification model that predict the target column <b>DEATH_EVENT</b>, which indicates if a heart failure patient will survive or not before the end of the follow-up period. This is based on the information provided by the 11 clinical features (or risk factors). The <b>time</b> feature was dropped before training since we cannot get a time value for new patients after deployment. The predictors variables are as follows:
+The objective of the task is to train a binary classification model that predict the target column <b>DEATH_EVENT</b>, which indicates if a heart failure patient will survive or not before the end of the follow-up period. This is based on the information provided by the 11 clinical features (or risk factors). The <b>time</b> feature is dropped before training since we cannot get a time value for new patients after deployment. The predictors variables are as follows:
 
 1. Age: age of patient (years)
 2. Anaemia: Decrease of red blood cells or hemoglobin. It has a value of 1 or 0 with 1 being the patient does have this condition
@@ -48,6 +48,7 @@ The objective of the task is to train a binary classification model that predict
 12. Time: Follow-up period (days)
 
 Target variable - Death Event: If the patient died during the follow-up period
+
 Death Event = 1 for dead patients and Death Event = 0 for survived patients
 
 ### Access
@@ -59,7 +60,7 @@ The data for this project can be accessed in our workspace through the following
 
 * Register the dataset either using AzureML SDK or AzureML Studio using a weburl or from local files.
 
-* For this project, we registered the dataset in our workspace using a weburl in Azure SDK, retrieving the data from the csv file using <b>TabularDatasetFactory</b> Class .
+* For this project, we registered the dataset in our workspace using a weburl in Azure SDK and retrieve the data from the csv file using the <b>TabularDatasetFactory</b> Class.
 
 ## Automated ML
 *TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
@@ -82,15 +83,13 @@ automl_config = AutoMLConfig(compute_target=compute_target,
                             )
 ```
 
-As shown in above code snippet, the task for this machine learning problem is a classification, with the primary metric AUC weighted, which is more appropriate than accuracy since the dataset is moderately imbalanced (67.89% negative elements and 32.11% positive elements).
-
 As shown in above code snippet, the AutoML settings are: 
 
-* The <i>task</i> for this machine learning problem is a classification
+* The <i>task</i> for this machine learning problem is classification
 * The <i>primary_metric</i> used is AUC weighted, which is more appropriate than accuracy since the dataset is moderately imbalanced (67.89% negative elements and 32.11% positive elements). 
 * <i>n_cross_validation</i> of 5 folds rather than 3 is used which gives a better performance. 
 * An <i>experiment_timeout_minutes</i> of 30 is specified to constrain usage.
-* The <i>max_concurrent_iterations</i> to be executed in parallel during training is set to 5.
+* The <i>max_concurrent_iterations</i> to be executed in parallel during training is set to 5 so the process is completed faster.
 
 ### Results
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
@@ -103,12 +102,35 @@ Model hyper-parameters used for VotingEnsemble are shown below:
 
 ### Improvements for autoML
 
-1. Increase experiment timeout to allow for model experimentation and setting featurization as auto.
+1. Increase experiment timeout to allow for model experimentation.
 2. Remove some features from our dataset which are collinear or not that important in making the decision.
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
 
+We use the SKLearn inbuilt Support Vector Machines (SVMs) for classification since it is capable of generating non-linear decision boundaries, and can achieve high accuracies. It is also more robust to outliers than Logistic Regression. This algorithm is used with the Azure ML HyperDrive service for hyperparameter tuning.
+
+The hyperparameters tuned were the inverse regularization strength -C and the and kernel type -kernel. We used Random Parameter Sampling method for finding C and kernel values as specified in the parameter search space shown in code snippet below:
+
+Parameter search space and Hyperdrive configuration.
+
+```ruby
+param_sampling = RandomParameterSampling( {
+        "--kernel": choice('linear', 'rbf', 'poly', 'sigmoid'),
+        "--C": choice(0.001, 0.005, 0.01, 0.05, 0.1, 0.3, 0.7, 1.0, 1.3, 1.7,  2.0)
+})
+
+
+hyperdrive_run_config = HyperDriveConfig(run_config=estimator,
+                                         hyperparameter_sampling=param_sampling,
+                                         policy=early_termination_policy,
+                                         primary_metric_name='AUC_weighted',
+                                         primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
+                                         max_total_runs=20,
+                                         max_concurrent_runs=5)
+```
+
+We applied a <b>bandit</b> early termination policy to evaluate our benchmark metric (AUC_weighted). The policy is chosen based on slack factor, avoids premature termination of first 5 runs, and then subsequently terminates runs whose primary metric fall outside of the top 10%. This helps to stop the training process after it starts degrading the AUC_weighted with increased iteration count, thereby improving computational efficiency.
 
 ### Results
 *TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
