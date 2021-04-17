@@ -84,8 +84,6 @@ As shown in above code snippet, the AutoML settings are:
 
 ### Results
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
-
 The Best model is ```VotingEnsemble``` with an AUC value of ```0.9226163713547434```
 
 Model hyper-parameters used for VotingEnsemble are shown below:
@@ -180,7 +178,7 @@ The following steps are required to deploy a model using Azure SDK:
 
 Successful model deployment![image](https://user-images.githubusercontent.com/68206315/115101958-ff4e2700-9f3f-11eb-9b73-2352690097a3.png)
 
-Azure ML studion visualization of deployed model![image](https://user-images.githubusercontent.com/68206315/115102007-5653fc00-9f40-11eb-91c5-e6770fe6af1c.png)
+Azure ML studio visualization of deployed model![image](https://user-images.githubusercontent.com/68206315/115102007-5653fc00-9f40-11eb-91c5-e6770fe6af1c.png)
 
 Sampled input data![image](https://user-images.githubusercontent.com/68206315/115102101-d1b5ad80-9f40-11eb-96fd-7920d3e71764.png)
 
