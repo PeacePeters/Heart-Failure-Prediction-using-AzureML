@@ -105,13 +105,14 @@ Model hyper-parameters used for VotingEnsemble are shown below:
 1. Increase experiment timeout to allow for model experimentation.
 2. Remove some features from our dataset that are collinear or not important in making the decision.
 
-AutoML experiment in Running state with model details that are completed![image](https://user-images.githubusercontent.com/68206315/115097539-dec3a400-9f22-11eb-8845-d65192d2f11c.png)
+AutoML Widget![image](https://user-images.githubusercontent.com/68206315/115097539-dec3a400-9f22-11eb-8845-d65192d2f11c.png)
 
 Best Model![image](https://user-images.githubusercontent.com/68206315/115098189-78408500-9f26-11eb-9a26-ee8180c1a89e.png)
 
 ![image](https://user-images.githubusercontent.com/68206315/115098550-82fc1980-9f28-11eb-90af-c522fe768ccf.png)
 
-Automl Widget![image](https://user-images.githubusercontent.com/68206315/115098591-c191d400-9f28-11eb-885c-12a443184cca.png)
+Best_model_run![image](https://user-images.githubusercontent.com/68206315/115098755-a8d5ee00-9f29-11eb-8034-fa1edec121fb.png)
+
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
