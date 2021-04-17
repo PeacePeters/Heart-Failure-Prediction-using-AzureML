@@ -188,6 +188,14 @@ Response from webservice![image](https://user-images.githubusercontent.com/68206
 
 https://youtu.be/kQ1-Q0g_2BE
 
+## Future Improvements
+
+1. A better performing AutoML model can be detected if the experiment timeout is increased.
+
+2. Addressing the dataset imbalance by applying Synthetic Minority Oversampling Technique (SMOTE) can improve the performance of Hyperdrive model.
+
+3. Converting the model into platform supported formats such as ONNX, TFLITE etc. will help optimize inference or model scoring and achieve scalability.
+
 ## Standout Suggestions
 
 Enabled application insights during model deployment in order to log useful data about the requests being sent to the webservice.
