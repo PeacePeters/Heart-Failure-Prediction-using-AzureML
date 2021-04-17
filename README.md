@@ -55,7 +55,6 @@ The data for this project can be accessed in our workspace through the following
 * For this project, we registered the dataset in our workspace using a weburl in Azure SDK and retrieve the data from the csv file using the <b>TabularDatasetFactory</b> Class.
 
 ## Automated ML
-*TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
 
 We have used following configuration for AutoML.
 ```ruby
@@ -84,7 +83,6 @@ As shown in above code snippet, the AutoML settings are:
 * The <i>max_concurrent_iterations</i> to be executed in parallel during training is set to 5 so the process is completed faster.
 
 ### Results
-*TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
 
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
@@ -148,15 +146,6 @@ Kernel | linear
 * Adding more hyperparameters to be tuned can increase the model performance.
 * Increasing max total runs to try a lot more combinations of hyperparameters, though this could have an impact on cost and training duration. 
 
-### Automated ML and Hyperdrive Comparison
-
-Key | AutoML | Hyperdrive 
- | ------------- | ------------- | ------------- 
-AUC_weighed | SVM with 0.8167 | VotingEnsemble with 0.9226
-Duration | 42.13 minutes | 88 minutes
-
-As shown in diagram, the VotingEnsemble model of AutoML performed better with an AUC value of 0.9107 compared to 0.8713 in Support Vector Machines through HyperDrive. So we will deploy the AutoML model.
-
 Hyperdrive experiment in Running state with completed iterations and AUC value for each iteration![image](https://user-images.githubusercontent.com/68206315/115097262-04e84480-9f21-11eb-85f0-f16ca4de7395.png)
 
 Hyperdrive experiment in Completed state with the best model's hyperparameters![image](https://user-images.githubusercontent.com/68206315/115097163-770c5980-9f20-11eb-90aa-ef61d42c83ce.png)
@@ -166,6 +155,15 @@ Hyperdrive experiment in Completed state with the best model's hyperparameters![
 Best-model![image](https://user-images.githubusercontent.com/68206315/115097444-31e92700-9f22-11eb-83a7-4d304d7a1f0e.png)
 
 Hyperdrive Widget![image](https://user-images.githubusercontent.com/68206315/115097417-fea69800-9f21-11eb-9772-ecfac1eee40a.png)
+
+### Automated ML and Hyperdrive Comparison
+
+Key | AutoML | Hyperdrive 
+ | ------------- | ------------- | ------------- 
+AUC_weighed | VotingEnsemble with 0.9226 | SVM with 0.8167
+Duration | 42.13 minutes | 88 minutes
+
+As shown in diagram, the VotingEnsemble model of AutoML performed better with an AUC value of 0.9226 compared to 0.8167 in Support Vector Machines through HyperDrive. So we will deploy the AutoML model.
 
 ## Model Deployment
 
@@ -179,17 +177,25 @@ The following steps are required to deploy a model using Azure SDK:
 6. For inferencing, pass the sample test data in json format to model endpoint to test the webservice. This will be processed by the score.py file to make successful rest api call.
 
 #### Deployed model
-Azure ML studion visualization of deployed model
 
+Successful model deployment![image](https://user-images.githubusercontent.com/68206315/115101958-ff4e2700-9f3f-11eb-9b73-2352690097a3.png)
+
+Azure ML studion visualization of deployed model![image](https://user-images.githubusercontent.com/68206315/115102007-5653fc00-9f40-11eb-91c5-e6770fe6af1c.png)
+
+Sampled input data![image](https://user-images.githubusercontent.com/68206315/115102101-d1b5ad80-9f40-11eb-96fd-7920d3e71764.png)
+
+Response from webservice![image](https://user-images.githubusercontent.com/68206315/115102221-599bb780-9f41-11eb-89cd-3337f166c749.png)
 
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
+
+
 - A working model
 - Demo of the deployed  model
 - Demo of a sample request sent to the endpoint and its response
 
 ## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+
+Enabled application insights during model deployment in order to log useful data about the requests being sent to the webservice.
 
 ## Citation
 
