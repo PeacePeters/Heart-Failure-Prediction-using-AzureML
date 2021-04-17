@@ -88,6 +88,35 @@ The Best model is ```VotingEnsemble``` with an AUC value of ```0.922616371354743
 
 Model hyper-parameters used for VotingEnsemble are shown below:
 
+The parameters for the model VotingEnsemble are described in the table below:
+
+```minmaxscaler```
+Parameters | Values |
+ | ------------- | -------------
+copy | True
+feature_range | (0, 1)
+
+randomforestclassifier
+{'bootstrap': True,
+ 'ccp_alpha': 0.0,
+ 'class_weight': 'balanced',
+ 'criterion': 'gini',
+ 'max_depth': None,
+ 'max_features': 0.2,
+ 'max_leaf_nodes': None,
+ 'max_samples': None,
+ 'min_impurity_decrease': 0.0,
+ 'min_impurity_split': None,
+ 'min_samples_leaf': 0.01,
+ 'min_samples_split': 0.2442105263157895,
+ 'min_weight_fraction_leaf': 0.0,
+ 'n_estimators': 100,
+ 'n_jobs': 1,
+ 'oob_score': True,
+ 'random_state': None,
+ 'verbose': 0,
+ 'warm_start': False}
+
 ### Improvements for autoML
 
 1. Increase experiment timeout to allow for model experimentation.
