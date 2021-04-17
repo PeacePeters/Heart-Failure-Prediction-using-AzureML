@@ -164,7 +164,8 @@ As shown in diagram, the VotingEnsemble model of AutoML performed better with an
 
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
-HyperDrive in Running state with completed iterations and the AUC value in each iteration.
+Hyperdrive-running.png![image](https://user-images.githubusercontent.com/68206315/115097262-04e84480-9f21-11eb-85f0-f16ca4de7395.png)
+
 
 ![image](https://user-images.githubusercontent.com/68206315/115095458-4674f180-9f19-11eb-822d-abbec3e635e0.png)
 
