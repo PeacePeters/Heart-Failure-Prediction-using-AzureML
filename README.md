@@ -106,14 +106,15 @@ Best_model_run![image](https://user-images.githubusercontent.com/68206315/115098
 
 We use the SKLearn inbuilt Support Vector Machines (SVMs) for classification since it is capable of generating non-linear decision boundaries, and can achieve high accuracies. It is also more robust to outliers than Logistic Regression. This algorithm is used with the Azure ML HyperDrive service for hyperparameter tuning.
 
-The hyperparameters tuned were the inverse regularization strength -C and the and kernel type -kernel. We used Random Parameter Sampling method for finding C and kernel values as specified in the parameter search space shown in code snippet below:
+The hyperparameters tuned were the inverse regularization strength -C and the and kernel type -kernel with the search space defined for C as ```[0.5,1.0]``` and kernel as ```[linear,rbf,poly,sigmoid]```. We used Random Parameter Sampling method to sample over discrete kernel types and returns a C value whose logarithm is uniformly distributed. Random sampling can serve as a benchmark for refining the search space to improve results.
 
 Parameter search space and Hyperdrive configuration.
 
 ```ruby
 param_sampling = RandomParameterSampling( {
         "--kernel": choice('linear', 'rbf', 'poly', 'sigmoid'),
-        "--C": choice(0.001, 0.005, 0.01, 0.05, 0.1, 0.3, 0.7, 1.0, 1.3, 1.7,  2.0)
+        "--C": choice(0.001, 0.005, 0.01, 0.05, 0.1, 0.3, 0.7, 1.0, 1.3, 1.7,  2.0),
+        "--C": loguniform(0.5, 1.0)
 })
 
 
@@ -129,7 +130,6 @@ hyperdrive_run_config = HyperDriveConfig(run_config=estimator,
 We applied a <b>bandit</b> early termination policy to evaluate our benchmark metric (AUC_weighted). The policy is chosen based on slack factor, avoids premature termination of first 5 runs, and then subsequently terminates runs whose primary metric fall outside of the top 10%. This helps to stop the training process after it starts degrading the AUC_weighted with increased iteration count, thereby improving computational efficiency.
 
 ### Results
-*TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
 
 The SVM model achieved an AUC value of ```0.8166666666666667``` with the following parameters:
 
@@ -187,6 +187,14 @@ Response from webservice![image](https://user-images.githubusercontent.com/68206
 ## Screen Recording
 
 https://youtu.be/kQ1-Q0g_2BE
+
+## Future Improvements
+
+1. A better performing AutoML model can be detected if the experiment timeout is increased.
+
+2. Addressing the dataset imbalance by applying Synthetic Minority Oversampling Technique (SMOTE) can improve the performance of Hyperdrive model.
+
+3. Converting the model into platform supported formats such as ONNX, TFLITE etc. will help optimize inference or model scoring and achieve scalability.
 
 ## Standout Suggestions
 
