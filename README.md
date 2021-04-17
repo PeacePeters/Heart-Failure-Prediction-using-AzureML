@@ -186,10 +186,7 @@ Response from webservice![image](https://user-images.githubusercontent.com/68206
 
 ## Screen Recording
 
-
-- A working model
-- Demo of the deployed  model
-- Demo of a sample request sent to the endpoint and its response
+https://youtu.be/kQ1-Q0g_2BE
 
 ## Standout Suggestions
 
