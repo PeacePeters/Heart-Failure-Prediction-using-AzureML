@@ -160,6 +160,9 @@ As shown in diagram, the VotingEnsemble model of AutoML performed better with an
 
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
+AutoML experiment in Running state with model details that are completed
+![image](https://user-images.githubusercontent.com/68206315/115095458-4674f180-9f19-11eb-822d-abbec3e635e0.png)
+
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 
@@ -175,7 +178,6 @@ The following steps are required to deploy a model using Azure SDK:
 #### Deployed model
 Azure ML studion visualization of deployed model
 
-![image](https://user-images.githubusercontent.com/68206315/115095458-4674f180-9f19-11eb-822d-abbec3e635e0.png)
 
 ## Screen Recording
 *TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
