@@ -172,6 +172,9 @@ The following steps are required to deploy a model using Azure SDK:
 5. Deploy the model using any of the deployment choices - ACI, AKS or local. For our project, we deploy the model as webservice using Azure Container Instance with ``` cpu_cores = 1 ```, ``` memory_gb = 1 ``` and application insights enabled.
 6. For inferencing, pass the sample test data in json format to query the endpoint. The sample input data is provided in the [endpoint.py]() script where we have to specify our endpoint URL and authentication key to make successful rest api call.
 
+#### Deployed model
+Azure ML studion visualization of deployed model
+
 ## Screen Recording
 *TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
 - A working model
