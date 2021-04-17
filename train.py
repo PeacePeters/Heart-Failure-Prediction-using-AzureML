@@ -16,7 +16,6 @@ from time import time
 # Data is located at:
 # "https://raw.githubusercontent.com/PeacePeters/Deploy-the-best-model-using-AzureML/main/heart_failure.csv"
 
-#data_url = 'https://raw.githubusercontent.com/PeacePeters/Deploy-the-best-model-using-AzureML/main/heart_failure.csv'
 data_url = 'https://raw.githubusercontent.com/PeacePeters/Heart-Failure-Prediction-using-AzureML/main/heart_failure.csv'
 ds = TabularDatasetFactory.from_delimited_files(path=data_url)
     
