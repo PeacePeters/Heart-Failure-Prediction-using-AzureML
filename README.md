@@ -107,8 +107,11 @@ Model hyper-parameters used for VotingEnsemble are shown below:
 
 AutoML experiment in Running state with model details that are completed![image](https://user-images.githubusercontent.com/68206315/115097539-dec3a400-9f22-11eb-8845-d65192d2f11c.png)
 
+Best Model![image](https://user-images.githubusercontent.com/68206315/115098189-78408500-9f26-11eb-9a26-ee8180c1a89e.png)
 
-AutoML experiment in Completed state with the best model being VotingEnsemble
+![image](https://user-images.githubusercontent.com/68206315/115098550-82fc1980-9f28-11eb-90af-c522fe768ccf.png)
+
+Automl Widget![image](https://user-images.githubusercontent.com/68206315/115098591-c191d400-9f28-11eb-885c-12a443184cca.png)
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
@@ -184,8 +187,8 @@ The following steps are required to deploy a model using Azure SDK:
 2. Find the best model using Automl
 3. Use the environment of automl's best_run or create a custom environment
 4. Use the score.py file generated when the model is trained for deployment and evaluation. The scoring script describes the input data the model endpoint accepts. 
-5. Deploy the model using any of the deployment choices - ACI, AKS or local. For our project, we deploy the model as webservice using Azure Container Instance with ``` cpu_cores = 1 ```, ``` memory_gb = 1 ``` and application insights enabled.
-6. For inferencing, pass the sample test data in json format to query the endpoint. The sample input data is provided in the [endpoint.py]() script where we have to specify our endpoint URL and authentication key to make successful rest api call.
+5. Deploy the model using any of the deployment choices - ACI, AKS or local. For our project, we deploy the model as webservice using Azure Container Instance with ```cpu_cores = 1```, ```memory_gb = 1``` and application insights enabled.
+6. For inferencing, pass the sample test data in json format to model endpoint to test the webservice. The sample input data is provided in the [endpoint.py]() script where we have to specify our endpoint URL and authentication key to make successful rest api call.
 
 #### Deployed model
 Azure ML studion visualization of deployed model
