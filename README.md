@@ -105,7 +105,8 @@ Model hyper-parameters used for VotingEnsemble are shown below:
 1. Increase experiment timeout to allow for model experimentation.
 2. Remove some features from our dataset that are collinear or not important in making the decision.
 
-AutoML experiment in Running state with model details that are completed.
+AutoML experiment in Running state with model details that are completed![image](https://user-images.githubusercontent.com/68206315/115097539-dec3a400-9f22-11eb-8845-d65192d2f11c.png)
+
 
 AutoML experiment in Completed state with the best model being VotingEnsemble
 
@@ -139,12 +140,12 @@ We applied a <b>bandit</b> early termination policy to evaluate our benchmark me
 ### Results
 *TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
 
-The SVM model achieved an AUC value of 0.871 with the following parameters:
+The SVM model achieved an AUC value of ```0.8166666666666667``` with the following parameters:
 
 Hyperparameter | Value |
  | ------------- | -------------
-Regularization Strength (C) | 0.7
-Kernel | rbf
+Regularization Strength (C) | 1.0
+Kernel | linear
 
 ### Improvements for hyperDrive
 
