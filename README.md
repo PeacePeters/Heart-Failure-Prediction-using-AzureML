@@ -1,13 +1,8 @@
-*NOTE:* This file is a template that you can use to create the README for your project. The *TODO* comments below will highlight the information you should be sure to include.
-
 # Heart Failure Prediction using AzureML
-
-*TODO:* Write a short introduction to your project.
 
 In this project, we demonstrate how to use the Azure ML Python SDK to train a model to predict mortality due to heart failure using Azure AutoML and Hyperdrive services. After training, we are going to deploy the best model and evaluate the model endpoint by consuming it.
 
 ## Project Set Up and Installation
-*OPTIONAL:* If your project has any special installation steps, this is where you should put it. To turn this project into a professional portfolio project, you are encouraged to explain how to set up this project in AzureML.
 
 To set this project, we require access to Azure ML Studio. The application flow for the project design is as follows:
 1. Create an Azure ML workspace with a compute instance.
@@ -19,7 +14,6 @@ To set this project, we require access to Azure ML Studio. The application flow 
 ## Dataset
 
 ### Overview
-*TODO*: Explain about the data you are using and where you got it from.
 
 The Heart [Heart Failure Prediction](https://archive.ics.uci.edu/ml/datasets/Heart+failure+clinical+records) dataset is used for assessing the severity of patients with heart failure. It contains the medical records of 299 heart failure patients collected at the Faisalabad Institute of Cardiology and at the Allied Hospital in Faisalabad (Punjab, Pakistan), during April–December 2015. The patients, who are aged 40 years and above, comprise of 105 women and 194 men who have all previously had heart failures.
 
@@ -28,7 +22,6 @@ The dataset contains 13 features, which report clinical, body, and lifestyle inf
 Additional information about this dataset can be found in the original dataset curators [publication](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0181001).
 
 ### Task
-*TODO*: Explain the task you are going to be solving with this dataset and the features you will be using for it.
 
 The task here is to predict mortality due to heart failure. Heart failure is a common event caused by Cardiovascular diseases (CVDs), and  it occurs when the heart cannot pump enough blood to meet the needs of the body. The main reasons behind heart failure include diabetes, high blood pressure, or other heart conditions or diseases. By applying machine learning procedure to this analysis, we will have a predictive model that can potentially impact clinical practice, becoming a new supporting tool for physicians when assessing the increased risk of mortality among heart failure patients.
 
@@ -52,7 +45,6 @@ Target variable - Death Event: If the patient died during the follow-up period
 Death Event = 1 for dead patients and Death Event = 0 for survived patients
 
 ### Access
-*TODO*: Explain how you are accessing the data in your workspace.
 
 The data for this project can be accessed in our workspace through the following steps:
 
@@ -96,7 +88,7 @@ As shown in above code snippet, the AutoML settings are:
 
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
-The Best model is <b>VotingEnsemble</b> with an AUC of <b> 87.38 </b>
+The Best model is ```VotingEnsemble``` with an AUC value of ```0.9226163713547434```
 
 Model hyper-parameters used for VotingEnsemble are shown below:
 
@@ -115,7 +107,6 @@ Best_model_run![image](https://user-images.githubusercontent.com/68206315/115098
 
 
 ## Hyperparameter Tuning
-*TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
 
 We use the SKLearn inbuilt Support Vector Machines (SVMs) for classification since it is capable of generating non-linear decision boundaries, and can achieve high accuracies. It is also more robust to outliers than Logistic Regression. This algorithm is used with the Azure ML HyperDrive service for hyperparameter tuning.
 
@@ -161,13 +152,10 @@ Kernel | linear
 
 Key | AutoML | Hyperdrive 
  | ------------- | ------------- | ------------- 
-Architecture | ![!hyperdrive](./images/scikit-learn-pipeline.jpg) | ![!hyperdrive](./images/automl_pipeline.jpg)
-Accuracy | SVM with 91.47% | VotingEnsemble with 91.66%
-Duration | 18.3 minute | 33.2 minute
+AUC_weighed | SVM with 0.8167 | VotingEnsemble with 0.9226
+Duration | 42.13 minutes | 88 minutes
 
 As shown in diagram, the VotingEnsemble model of AutoML performed better with an AUC value of 0.9107 compared to 0.8713 in Support Vector Machines through HyperDrive. So we will deploy the AutoML model.
-
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
 Hyperdrive experiment in Running state with completed iterations and AUC value for each iteration![image](https://user-images.githubusercontent.com/68206315/115097262-04e84480-9f21-11eb-85f0-f16ca4de7395.png)
 
@@ -180,7 +168,6 @@ Best-model![image](https://user-images.githubusercontent.com/68206315/115097444-
 Hyperdrive Widget![image](https://user-images.githubusercontent.com/68206315/115097417-fea69800-9f21-11eb-9772-ecfac1eee40a.png)
 
 ## Model Deployment
-*TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 
 The following steps are required to deploy a model using Azure SDK:
 
@@ -189,7 +176,7 @@ The following steps are required to deploy a model using Azure SDK:
 3. Use the environment of automl's best_run or create a custom environment
 4. Use the score.py file generated when the model is trained for deployment and evaluation. The scoring script describes the input data the model endpoint accepts. 
 5. Deploy the model using any of the deployment choices - ACI, AKS or local. For our project, we deploy the model as webservice using Azure Container Instance with ```cpu_cores = 1```, ```memory_gb = 1``` and application insights enabled.
-6. For inferencing, pass the sample test data in json format to model endpoint to test the webservice. The sample input data is provided in the [endpoint.py]() script where we have to specify our endpoint URL and authentication key to make successful rest api call.
+6. For inferencing, pass the sample test data in json format to model endpoint to test the webservice. This will be processed by the score.py file to make successful rest api call.
 
 #### Deployed model
 Azure ML studion visualization of deployed model
