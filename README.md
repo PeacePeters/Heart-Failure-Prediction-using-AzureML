@@ -166,15 +166,13 @@ As shown in diagram, the VotingEnsemble model of AutoML performed better with an
 
 Hyperdrive experiment in Running state with completed iterations and AUC value for each iteration![image](https://user-images.githubusercontent.com/68206315/115097262-04e84480-9f21-11eb-85f0-f16ca4de7395.png)
 
+Hyperdrive experiment in Completed state with the best model's hyperparameters![image](https://user-images.githubusercontent.com/68206315/115097163-770c5980-9f20-11eb-90aa-ef61d42c83ce.png)
 
-![image](https://user-images.githubusercontent.com/68206315/115095458-4674f180-9f19-11eb-822d-abbec3e635e0.png)
+![image](https://user-images.githubusercontent.com/68206315/115097192-9acf9f80-9f20-11eb-8493-48d1a31fcbd3.png)
 
-Hyperdrive experiment in Completed state with the best model's hyperparameters
+Best-model![image](https://user-images.githubusercontent.com/68206315/115097444-31e92700-9f22-11eb-83a7-4d304d7a1f0e.png)
 
-![image](https://user-images.githubusercontent.com/68206315/115097163-770c5980-9f20-11eb-90aa-ef61d42c83ce.png)
-
-Screenshot 2021-04-17 at 01.40.44![image](https://user-images.githubusercontent.com/68206315/115097192-9acf9f80-9f20-11eb-8493-48d1a31fcbd3.png)
-
+Hyperdrive Widget![image](https://user-images.githubusercontent.com/68206315/115097417-fea69800-9f21-11eb-9772-ecfac1eee40a.png)
 
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
