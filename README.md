@@ -105,6 +105,10 @@ Model hyper-parameters used for VotingEnsemble are shown below:
 1. Increase experiment timeout to allow for model experimentation.
 2. Remove some features from our dataset that are collinear or not important in making the decision.
 
+AutoML experiment in Running state with model details that are completed.
+
+AutoML experiment in Completed state with the best model being VotingEnsemble
+
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
 
@@ -160,8 +164,16 @@ As shown in diagram, the VotingEnsemble model of AutoML performed better with an
 
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
-AutoML experiment in Running state with model details that are completed
+HyperDrive in Running state with completed iterations and the AUC value in each iteration.
+
 ![image](https://user-images.githubusercontent.com/68206315/115095458-4674f180-9f19-11eb-822d-abbec3e635e0.png)
+
+Hyperdrive experiment in Completed state with the best model's hyperparameters
+
+![image](https://user-images.githubusercontent.com/68206315/115097163-770c5980-9f20-11eb-90aa-ef61d42c83ce.png)
+
+Screenshot 2021-04-17 at 01.40.44![image](https://user-images.githubusercontent.com/68206315/115097192-9acf9f80-9f20-11eb-8493-48d1a31fcbd3.png)
+
 
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
