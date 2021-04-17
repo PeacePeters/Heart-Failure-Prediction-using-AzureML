@@ -90,7 +90,7 @@ Model hyper-parameters used for VotingEnsemble are shown below:
 
 The parameters for the model VotingEnsemble are described in the table below:
 
-```minmaxscaler```
+```Minmaxscaler```
 Parameters | Values |
  | ------------- | -------------
 copy | True
@@ -210,6 +210,10 @@ Successful model deployment![image](https://user-images.githubusercontent.com/68
 Azure ML studio visualization of deployed model![image](https://user-images.githubusercontent.com/68206315/115102007-5653fc00-9f40-11eb-91c5-e6770fe6af1c.png)
 
 Sampled input data![image](https://user-images.githubusercontent.com/68206315/115102101-d1b5ad80-9f40-11eb-96fd-7920d3e71764.png)
+
+Sample input data in following json structure to query the endpoint.
+
+
 
 Response from webservice![image](https://user-images.githubusercontent.com/68206315/115102221-599bb780-9f41-11eb-89cd-3337f166c749.png)
 
