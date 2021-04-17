@@ -213,7 +213,26 @@ Sampled input data![image](https://user-images.githubusercontent.com/68206315/11
 
 Sample input data in following json structure to query the endpoint.
 
-
+```ruby
+data = {
+    "data":
+    [
+        {
+            'Age':75,
+            'anaemia':0,
+            'creatinine_phosphokinase':582,
+            'diabetes':0,
+            'ejection_fraction':20,
+            'high_blood_pressure':1,
+            'platelets':265000,
+            'serum_creatinine':1.9,
+            'serum_sodium':130,
+            'sex':1,
+            'smoking':0
+         
+          }
+        ]
+    }
 
 Response from webservice![image](https://user-images.githubusercontent.com/68206315/115102221-599bb780-9f41-11eb-89cd-3337f166c749.png)
 
