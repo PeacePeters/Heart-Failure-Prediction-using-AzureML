@@ -12,6 +12,16 @@ This trained and deployed predictive model can potentially impact clinical pract
    * [Access](#Access)
 3. [Automated ML](#Automated-ML)
    * [Results](#Results)
+   * [Improvements for AutoML](#Improvements-for-AutoML)
+4. [Hyperparameter Tuning](#Hyperparameter-Tuning)
+   * [Results](#Results)
+   * [Improvements for Hyperparameter Tuning](#Improvements-for-Hyperparameter-Tuning)
+5. [Automated ML and Hyperparameter Tuning Comparison](#Automated-ML-and-Hyperparameter-Tuning-Comparison)
+6. [Model Deployment](#Model-Deployment)
+7. [Screen Recording](#Screen-Recording)
+8. [Future Improvements](#Future-Improvements)
+9. [Standout Suggestions](#Standout-Suggestions)
+10. [Citation](#Citation)
 
 ## Project Set Up and Installation
 
@@ -128,7 +138,7 @@ randomforestclassifier
  'verbose': 0,
  'warm_start': False}
 
-### Improvements for autoML
+### Improvements for AutoML
 
 1. Increase experiment timeout to allow for model experimentation.
 2. Remove some features from our dataset that are collinear or not important in making the decision.
@@ -178,7 +188,7 @@ Hyperparameter | Value |
 Regularization Strength (C) | 1.0
 Kernel | linear
 
-### Improvements for hyperDrive
+### Improvements for Hyperparameter Tuning
 
 * We could improve this model by performing more feature engineering during data preparation phase.
 * Adding more hyperparameters to be tuned can increase the model performance.
@@ -194,7 +204,7 @@ Best-model![image](https://user-images.githubusercontent.com/68206315/115097444-
 
 Hyperdrive Widget![image](https://user-images.githubusercontent.com/68206315/115097417-fea69800-9f21-11eb-9772-ecfac1eee40a.png)
 
-### Automated ML and Hyperdrive Comparison
+## Automated ML and Hyperparameter Tuning Comparison
 
 Key | AutoML | Hyperdrive 
  | ------------- | ------------- | ------------- 
@@ -244,6 +254,7 @@ data = {
           }
         ]
     }
+```
 
 Response from webservice![image](https://user-images.githubusercontent.com/68206315/115102221-599bb780-9f41-11eb-89cd-3337f166c749.png)
 
