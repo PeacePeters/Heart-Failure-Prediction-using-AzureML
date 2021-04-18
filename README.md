@@ -197,7 +197,7 @@ Hyperdrive Run Widget provides information about logs recorded in the Run![image
 
 ![image](https://user-images.githubusercontent.com/68206315/115138832-71993700-a026-11eb-8f44-8637f7af5c3e.png)
 
-Hyperdrive experiment in Completed state with AUC value for each iteration![image](https://user-images.githubusercontent.com/68206315/115138855-8e356f00-a026-11eb-99f8-fba49f8b436c.png)
+Hyperdrive experiment in Completed state with AUC value for each iteration![image](https://user-images.githubusercontent.com/68206315/115139210-8b3b7e00-a028-11eb-8370-92edcc285e3d.png)
 
 Best model: After the successfuly run of the experiment, we have the best model with kernel type as Signoid and C value of 2.521![image](https://user-images.githubusercontent.com/68206315/115139008-81654b00-a027-11eb-8848-f110cf6f393a.png)
 
