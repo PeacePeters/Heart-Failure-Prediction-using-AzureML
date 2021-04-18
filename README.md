@@ -226,8 +226,6 @@ The following steps are required to deploy a model using Azure SDK:
 
 Successful model deployment using ACI (Azure Container Instance) and enable Application Insights![image](https://user-images.githubusercontent.com/68206315/115101958-ff4e2700-9f3f-11eb-9b73-2352690097a3.png)
 
-Sampled input data![image](https://user-images.githubusercontent.com/68206315/115102101-d1b5ad80-9f40-11eb-96fd-7920d3e71764.png)
-
 Sample input data to query the endpoint
 
 ```ruby
@@ -250,6 +248,8 @@ data = {
     ]
 }
 ```
+
+Sampled input data![image](https://user-images.githubusercontent.com/68206315/115102101-d1b5ad80-9f40-11eb-96fd-7920d3e71764.png)
 
 Response from webservice: When we make an API call to our endpoint with sample data, we will see the inference output of the model.![image](https://user-images.githubusercontent.com/68206315/115102221-599bb780-9f41-11eb-89cd-3337f166c749.png)
 
