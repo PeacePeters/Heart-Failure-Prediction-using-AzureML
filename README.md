@@ -85,14 +85,15 @@ automl_settings = {
     "primary_metric" : 'AUC_weighted'
 }
 
-automl_config = AutoMLConfig(compute_target=compute_target,
-                             task="classification",
-                             training_data=dataset,
-                             label_column_name="DEATH_EVENT",
-                             n_cross_validations=5,
-                             debug_log="automl_errors.log",
-                             **automl_settings
-                            )
+automl_config = AutoMLConfig(
+        compute_target=compute_target,
+        task="classification",
+        training_data=dataset,
+        label_column_name="DEATH_EVENT",
+        n_cross_validations=5,
+        debug_log="automl_errors.log",
+        **automl_settings
+)
 ```
 
 As shown in above code snippet, the AutoML settings are: 
@@ -111,32 +112,40 @@ Model hyper-parameters used for VotingEnsemble are shown below:
 
 The parameters for the model VotingEnsemble are described in the table below:
 
-```Minmaxscaler```
+```StandardScalerWrapper```
 Parameters | Values |
  | ------------- | -------------
+class_name | StandardScaler
 copy | True
-feature_range | (0, 1)
+module_name | sklearn.preprocessing._data
+with_mean | True
+with_std | False
 
-randomforestclassifier
-{'bootstrap': True,
- 'ccp_alpha': 0.0,
- 'class_weight': 'balanced',
- 'criterion': 'gini',
- 'max_depth': None,
- 'max_features': 0.2,
- 'max_leaf_nodes': None,
- 'max_samples': None,
- 'min_impurity_decrease': 0.0,
- 'min_impurity_split': None,
- 'min_samples_leaf': 0.01,
- 'min_samples_split': 0.2442105263157895,
- 'min_weight_fraction_leaf': 0.0,
- 'n_estimators': 100,
- 'n_jobs': 1,
- 'oob_score': True,
- 'random_state': None,
- 'verbose': 0,
- 'warm_start': False}
+```GradientBoostingClassifier```
+Parameters | Values |
+ | ------------- | -------------
+ccp_alpha | 0.0
+criterion | mse
+init | None
+learning_rate': 0.021544346900318822
+loss | deviance
+max_depth | 8
+max_features 0.5
+max_leaf_nodes | None
+min_impurity_decrease | 0.0
+min_impurity_split | None
+min_samples_leaf | 0.01
+min_samples_split | 0.38473684210526315
+min_weight_fraction_leaf | 0.0
+n_estimators | 400
+n_iter_no_change | None
+presort | deprecated
+random_state | None
+subsample | 0.43157894736842106
+tol | 0.0001
+validation_fraction | 0.1
+verbose | 0
+warm_start | False
 
 ### Improvements for AutoML
 
@@ -158,7 +167,7 @@ Best Model is VottingEnsemble with an AUC value of 0.92290![image](https://user-
 
 We use the SKLearn inbuilt Support Vector Machines (SVMs) for classification since it is capable of generating non-linear decision boundaries, and can achieve high accuracies. It is also more robust to outliers than Logistic Regression. This algorithm is used with the Azure ML HyperDrive service for hyperparameter tuning.
 
-The hyperparameters tuned were the inverse regularization strength -C and the and kernel type -kernel with the search space defined for C as ```[0.5,1.0]``` and kernel as ```[linear,rbf,poly,sigmoid]```. We used Random Parameter Sampling method to sample over discrete kernel types and returns a C value whose logarithm is uniformly distributed. Random sampling can serve as a benchmark for refining the search space to improve results.
+The hyperparameters tuned are inverse regularization strength -C and the kernel type -kernel with the search space defined for C as ```[0.5,1.0]``` and kernel as ```[linear,rbf,poly,sigmoid]```. We used Random Parameter Sampling method to sample over discrete kernel types and returns a C value whose logarithm is uniformly distributed. Random sampling can serve as a benchmark for refining the search space to improve results.
 
 Parameter search space and Hyperdrive configuration.
 
@@ -169,13 +178,15 @@ param_sampling = RandomParameterSampling( {
 })
 
 
-hyperdrive_run_config = HyperDriveConfig(run_config=estimator,
-                                         hyperparameter_sampling=param_sampling,
-                                         policy=early_termination_policy,
-                                         primary_metric_name='AUC_weighted',
-                                         primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
-                                         max_total_runs=20,
-                                         max_concurrent_runs=5)
+hyperdrive_run_config = HyperDriveConfig(
+                            run_config=estimator,
+                            hyperparameter_sampling=param_sampling,
+                            policy=early_termination_policy,
+                            primary_metric_name='AUC_weighted',
+                            primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
+                            max_total_runs=20,
+                            max_concurrent_runs=5
+)
 ```
 
 We applied a <b>bandit</b> early termination policy to evaluate our benchmark metric (AUC_weighted). The policy is chosen based on slack factor, avoids premature termination of first 5 runs, and then subsequently terminates runs whose primary metric fall outside of the top 10%. This helps to stop the training process after it starts degrading the AUC_weighted with increased iteration count, thereby improving computational efficiency.
@@ -201,7 +212,7 @@ Hyperdrive Run Widget provides information about logs recorded in the Run![image
 
 Hyperdrive experiment in Completed state with AUC value for each iteration![image](https://user-images.githubusercontent.com/68206315/115139210-8b3b7e00-a028-11eb-8370-92edcc285e3d.png)
 
-Best model: After the successfuly run of the experiment, we have the best model with kernel type as Signoid and C value of 2.521![image](https://user-images.githubusercontent.com/68206315/115139008-81654b00-a027-11eb-8848-f110cf6f393a.png)
+Best model: After successfully running the experiment, we have the best model with kernel type as Sigmoid and C value of 2.521![image](https://user-images.githubusercontent.com/68206315/115139008-81654b00-a027-11eb-8848-f110cf6f393a.png)
 
 ## Automated ML and Hyperparameter Tuning Comparison
 
@@ -209,7 +220,7 @@ Key | AutoML | Hyperdrive
  | ------------- | ------------- | ------------- 
 AUC_weighed |  0.92290 | 0.83333
 Best Model | VotingEnsemble | SVM
-Duration | 42.13 minutes | 91.21 minutes
+Duration | 39.16 minutes | 91.21 minutes
 
 As shown in diagram, the VotingEnsemble model of AutoML performed better with an AUC value of 0.9226 compared to 0.8167 in Support Vector Machines through HyperDrive. So we will deploy the AutoML model.
 
@@ -226,9 +237,9 @@ The following steps are required to deploy a model using Azure SDK:
 
 #### Deployed model
 
-Successful model deployment using ACI (Azure Container Instance) and enable Application Insights![image](https://user-images.githubusercontent.com/68206315/115140378-e40e1500-a02e-11eb-9890-966ccfa2a257.png)
+Successful model deployment using ACI (Azure Container Instance) and Application Insights enabled![image](https://user-images.githubusercontent.com/68206315/115140378-e40e1500-a02e-11eb-9890-966ccfa2a257.png)
 
-![image](https://user-images.githubusercontent.com/68206315/115140385-f0926d80-a02e-11eb-939d-3c156ef29252.png)
+![image](https://user-images.githubusercontent.com/68206315/115143882-9c44b900-a041-11eb-9192-388cfa3f1285.png)
 
 Sample input data to query the endpoint
 
@@ -259,7 +270,7 @@ Response from webservice: When we make an API call to our endpoint with sample d
 
 ## Screen Recording
 
-https://youtu.be/kQ1-Q0g_2BE
+https://youtu.be/m4giyTylWzU
 
 ## Future Improvements
 
