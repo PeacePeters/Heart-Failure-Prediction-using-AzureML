@@ -201,7 +201,7 @@ Hyperdrive Run Widget provides information about logs recorded in the Run![image
 
 Hyperdrive experiment in Completed state with AUC value for each iteration![image](https://user-images.githubusercontent.com/68206315/115139210-8b3b7e00-a028-11eb-8370-92edcc285e3d.png)
 
-Best model: After the successfuly run of the experiment, we have the best model with kernel type as Signoid and C value of 2.521![image](https://user-images.githubusercontent.com/68206315/115139008-81654b00-a027-11eb-8848-f110cf6f393a.png)
+Best model: After successfully running the experiment, we have the best model with kernel type as Sigmoid and C value of 2.521![image](https://user-images.githubusercontent.com/68206315/115139008-81654b00-a027-11eb-8848-f110cf6f393a.png)
 
 ## Automated ML and Hyperparameter Tuning Comparison
 
@@ -209,7 +209,7 @@ Key | AutoML | Hyperdrive
  | ------------- | ------------- | ------------- 
 AUC_weighed |  0.92290 | 0.83333
 Best Model | VotingEnsemble | SVM
-Duration | 42.13 minutes | 91.21 minutes
+Duration | 39.16 minutes | 91.21 minutes
 
 As shown in diagram, the VotingEnsemble model of AutoML performed better with an AUC value of 0.9226 compared to 0.8167 in Support Vector Machines through HyperDrive. So we will deploy the AutoML model.
 
