@@ -111,32 +111,40 @@ Model hyper-parameters used for VotingEnsemble are shown below:
 
 The parameters for the model VotingEnsemble are described in the table below:
 
-```Minmaxscaler```
+```StandardScalerWrapper```
 Parameters | Values |
  | ------------- | -------------
+class_name | StandardScaler
 copy | True
-feature_range | (0, 1)
+module_name | sklearn.preprocessing._data
+with_mean | True
+with_std | False
 
-randomforestclassifier
-{'bootstrap': True,
- 'ccp_alpha': 0.0,
- 'class_weight': 'balanced',
- 'criterion': 'gini',
- 'max_depth': None,
- 'max_features': 0.2,
- 'max_leaf_nodes': None,
- 'max_samples': None,
- 'min_impurity_decrease': 0.0,
- 'min_impurity_split': None,
- 'min_samples_leaf': 0.01,
- 'min_samples_split': 0.2442105263157895,
- 'min_weight_fraction_leaf': 0.0,
- 'n_estimators': 100,
- 'n_jobs': 1,
- 'oob_score': True,
- 'random_state': None,
- 'verbose': 0,
- 'warm_start': False}
+```GradientBoostingClassifier```
+Parameters | Values |
+ | ------------- | -------------
+ccp_alpha | 0.0
+criterion | mse
+init | None
+learning_rate': 0.021544346900318822
+loss | deviance
+max_depth | 8
+max_features 0.5
+max_leaf_nodes | None
+min_impurity_decrease | 0.0
+min_impurity_split | None
+min_samples_leaf | 0.01
+min_samples_split | 0.38473684210526315
+min_weight_fraction_leaf | 0.0
+n_estimators | 400
+n_iter_no_change | None
+presort | deprecated
+random_state | None
+subsample | 0.43157894736842106
+tol | 0.0001
+validation_fraction | 0.1
+verbose | 0
+warm_start | False
 
 ### Improvements for AutoML
 
