@@ -250,10 +250,9 @@ data = {
             'serum_sodium':130,
             'sex':1,
             'smoking':0
-         
-          }
-        ]
-    }
+        }
+    ]
+}
 ```
 
 Response from webservice![image](https://user-images.githubusercontent.com/68206315/115102221-599bb780-9f41-11eb-89cd-3337f166c749.png)
