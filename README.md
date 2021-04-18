@@ -143,7 +143,7 @@ randomforestclassifier
 1. Increase experiment timeout to allow for model experimentation.
 2. Remove some features from our dataset that are collinear or not important in making the decision.
 
-AutoML Widget![image](https://user-images.githubusercontent.com/68206315/115097539-dec3a400-9f22-11eb-8845-d65192d2f11c.png)
+AutoML Run Widget provides information about logs recorded in Run![image](https://user-images.githubusercontent.com/68206315/115097539-dec3a400-9f22-11eb-8845-d65192d2f11c.png)
 
 Best Model![image](https://user-images.githubusercontent.com/68206315/115098189-78408500-9f26-11eb-9a26-ee8180c1a89e.png)
 
@@ -163,7 +163,6 @@ Parameter search space and Hyperdrive configuration.
 ```ruby
 param_sampling = RandomParameterSampling( {
         "--kernel": choice('linear', 'rbf', 'poly', 'sigmoid'),
-        "--C": choice(0.001, 0.005, 0.01, 0.05, 0.1, 0.3, 0.7, 1.0, 1.3, 1.7,  2.0),
         "--C": loguniform(0.5, 1.0)
 })
 
@@ -181,11 +180,11 @@ We applied a <b>bandit</b> early termination policy to evaluate our benchmark me
 
 ### Results
 
-The SVM model achieved an AUC value of ```0.8166666666666667``` with the following parameters:
+The SVM model achieved an AUC value of ```0.8333333333333334``` with the following parameters:
 
 Hyperparameter | Value |
  | ------------- | -------------
-Regularization Strength (C) | 1.862243408964539
+Regularization Strength (C) | 2.521868105479297
 Kernel | sigmoid
 
 ### Improvements for Hyperparameter Tuning
@@ -194,20 +193,20 @@ Kernel | sigmoid
 * Adding more hyperparameters to be tuned can increase the model performance.
 * Increasing max total runs to try a lot more combinations of hyperparameters, though this could have an impact on cost and training duration. 
 
-Hyperdrive Run Widget provides information about logs recorded in the Run![image](https://user-images.githubusercontent.com/68206315/115134102-50741e80-a005-11eb-9260-1d1db8053fd3.png)
+Hyperdrive Run Widget provides information about logs recorded in the Run![image](https://user-images.githubusercontent.com/68206315/115138822-5dedd080-a026-11eb-8ffb-0dc720bb5a27.png)
 
-![image](https://user-images.githubusercontent.com/68206315/115134152-a779f380-a005-11eb-8cc5-f9738f7ec43a.png)
+![image](https://user-images.githubusercontent.com/68206315/115138832-71993700-a026-11eb-8f44-8637f7af5c3e.png)
 
-Hyperdrive experiment in Completed state with AUC value for each iteration![image](https://user-images.githubusercontent.com/68206315/115134142-903b0600-a005-11eb-9f74-35097de4e92b.png)
+Hyperdrive experiment in Completed state with AUC value for each iteration![image](https://user-images.githubusercontent.com/68206315/115138855-8e356f00-a026-11eb-99f8-fba49f8b436c.png)
 
-Best model: After the successfuly run of the experiment, we have the best model with kernel type as Signoid and C value of 1.86![image](https://user-images.githubusercontent.com/68206315/115134297-e6f50f80-a006-11eb-8f5c-5397adbc5ee5.png)
+Best model: After the successfuly run of the experiment, we have the best model with kernel type as Signoid and C value of 2.521![image](https://user-images.githubusercontent.com/68206315/115139008-81654b00-a027-11eb-8848-f110cf6f393a.png)
 
 ## Automated ML and Hyperparameter Tuning Comparison
 
 Key | AutoML | Hyperdrive 
  | ------------- | ------------- | ------------- 
-AUC_weighed | VotingEnsemble with 0.9226 | SVM with 0.8167
-Duration | 42.13 minutes | 88.73 minutes
+AUC_weighed | VotingEnsemble with 0.9226 | SVM with 0.8333
+Duration | 42.13 minutes | 91.21 minutes
 
 As shown in diagram, the VotingEnsemble model of AutoML performed better with an AUC value of 0.9226 compared to 0.8167 in Support Vector Machines through HyperDrive. So we will deploy the AutoML model.
 
