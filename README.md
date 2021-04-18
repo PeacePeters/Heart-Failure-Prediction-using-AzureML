@@ -5,7 +5,13 @@ In this project, we demonstrate how to use the Azure ML Python SDK to train a mo
 This trained and deployed predictive model can potentially impact clinical practice, becoming a new supporting tool for physicians when assessing the increased risk of mortality among heart failure patients.
 
 ## Table of Contents
-* 
+1. [Project Set Up and Installation](#Project-Set-Up-and-Installation)
+2. [Dataset](#Dataset)
+   * [Overview](#Overview)
+   * [Task](#Task)
+   * [Access](#Access)
+3. [Automated ML](#Automated-ML)
+   * [Results](#Results)
 
 ## Project Set Up and Installation
 
