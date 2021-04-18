@@ -105,7 +105,7 @@ As shown in above code snippet, the AutoML settings are:
 
 ### Results
 
-The Best model is ```VotingEnsemble``` with an AUC value of ```0.9226163713547434```
+The Best model is ```VotingEnsemble``` with an AUC value of ```0.9229042081949059```
 
 Model hyper-parameters used for VotingEnsemble are shown below:
 
@@ -143,13 +143,15 @@ randomforestclassifier
 1. Increase experiment timeout to allow for model experimentation.
 2. Remove some features from our dataset that are collinear or not important in making the decision.
 
-AutoML Widget![image](https://user-images.githubusercontent.com/68206315/115097539-dec3a400-9f22-11eb-8845-d65192d2f11c.png)
+AutoML Run Widget provides information about logs recorded in Run![image](https://user-images.githubusercontent.com/68206315/115140257-56cac080-a02e-11eb-9e06-62327c749b87.png)
 
-Best Model![image](https://user-images.githubusercontent.com/68206315/115098189-78408500-9f26-11eb-9a26-ee8180c1a89e.png)
+![image](https://user-images.githubusercontent.com/68206315/115140266-634f1900-a02e-11eb-9d8d-aa8562bd9684.png)
 
-![image](https://user-images.githubusercontent.com/68206315/115098550-82fc1980-9f28-11eb-90af-c522fe768ccf.png)
+AutoML experiment in Completed state with some model details![image](https://user-images.githubusercontent.com/68206315/115140343-b032ef80-a02e-11eb-87f2-19a13629aab8.png)
 
-Best_model_run![image](https://user-images.githubusercontent.com/68206315/115098755-a8d5ee00-9f29-11eb-8034-fa1edec121fb.png)
+Best Model Run Id![image](https://user-images.githubusercontent.com/68206315/115140211-081d2680-a02e-11eb-993a-395bfa2506b8.png)
+
+Best Model is VottingEnsemble with an AUC value of 0.92290![image](https://user-images.githubusercontent.com/68206315/115140235-2e42c680-a02e-11eb-928a-99a2d65317f0.png)
 
 
 ## Hyperparameter Tuning
@@ -163,7 +165,6 @@ Parameter search space and Hyperdrive configuration.
 ```ruby
 param_sampling = RandomParameterSampling( {
         "--kernel": choice('linear', 'rbf', 'poly', 'sigmoid'),
-        "--C": choice(0.001, 0.005, 0.01, 0.05, 0.1, 0.3, 0.7, 1.0, 1.3, 1.7,  2.0),
         "--C": loguniform(0.5, 1.0)
 })
 
@@ -181,11 +182,11 @@ We applied a <b>bandit</b> early termination policy to evaluate our benchmark me
 
 ### Results
 
-The SVM model achieved an AUC value of ```0.8166666666666667``` with the following parameters:
+The SVM model achieved an AUC value of ```0.8333333333333334``` with the following parameters:
 
 Hyperparameter | Value |
  | ------------- | -------------
-Regularization Strength (C) | 1.862243408964539
+Regularization Strength (C) | 2.521868105479297
 Kernel | sigmoid
 
 ### Improvements for Hyperparameter Tuning
@@ -194,20 +195,21 @@ Kernel | sigmoid
 * Adding more hyperparameters to be tuned can increase the model performance.
 * Increasing max total runs to try a lot more combinations of hyperparameters, though this could have an impact on cost and training duration. 
 
-Hyperdrive Run Widget provides information about logs recorded in the Run![image](https://user-images.githubusercontent.com/68206315/115134102-50741e80-a005-11eb-9260-1d1db8053fd3.png)
+Hyperdrive Run Widget provides information about logs recorded in the Run![image](https://user-images.githubusercontent.com/68206315/115138822-5dedd080-a026-11eb-8ffb-0dc720bb5a27.png)
 
-![image](https://user-images.githubusercontent.com/68206315/115134152-a779f380-a005-11eb-8cc5-f9738f7ec43a.png)
+![image](https://user-images.githubusercontent.com/68206315/115138832-71993700-a026-11eb-8f44-8637f7af5c3e.png)
 
-Hyperdrive experiment in Completed state with AUC value for each iteration![image](https://user-images.githubusercontent.com/68206315/115134142-903b0600-a005-11eb-9f74-35097de4e92b.png)
+Hyperdrive experiment in Completed state with AUC value for each iteration![image](https://user-images.githubusercontent.com/68206315/115139210-8b3b7e00-a028-11eb-8370-92edcc285e3d.png)
 
-Best model: After the successfuly run of the experiment, we have the best model with kernel type as Signoid and C value of 1.86![image](https://user-images.githubusercontent.com/68206315/115134297-e6f50f80-a006-11eb-8f5c-5397adbc5ee5.png)
+Best model: After the successfuly run of the experiment, we have the best model with kernel type as Signoid and C value of 2.521![image](https://user-images.githubusercontent.com/68206315/115139008-81654b00-a027-11eb-8848-f110cf6f393a.png)
 
 ## Automated ML and Hyperparameter Tuning Comparison
 
 Key | AutoML | Hyperdrive 
  | ------------- | ------------- | ------------- 
-AUC_weighed | VotingEnsemble with 0.9226 | SVM with 0.8167
-Duration | 42.13 minutes | 88.73 minutes
+AUC_weighed |  0.92290 | 0.83333
+Best Model | VotingEnsemble | SVM
+Duration | 42.13 minutes | 91.21 minutes
 
 As shown in diagram, the VotingEnsemble model of AutoML performed better with an AUC value of 0.9226 compared to 0.8167 in Support Vector Machines through HyperDrive. So we will deploy the AutoML model.
 
@@ -224,7 +226,9 @@ The following steps are required to deploy a model using Azure SDK:
 
 #### Deployed model
 
-Successful model deployment using ACI (Azure Container Instance) and enable Application Insights![image](https://user-images.githubusercontent.com/68206315/115101958-ff4e2700-9f3f-11eb-9b73-2352690097a3.png)
+Successful model deployment using ACI (Azure Container Instance) and enable Application Insights![image](https://user-images.githubusercontent.com/68206315/115140378-e40e1500-a02e-11eb-9890-966ccfa2a257.png)
+
+![image](https://user-images.githubusercontent.com/68206315/115140385-f0926d80-a02e-11eb-939d-3c156ef29252.png)
 
 Sample input data to query the endpoint
 
@@ -249,9 +253,9 @@ data = {
 }
 ```
 
-Sampled input data![image](https://user-images.githubusercontent.com/68206315/115102101-d1b5ad80-9f40-11eb-96fd-7920d3e71764.png)
+![image](https://user-images.githubusercontent.com/68206315/115140423-29324700-a02f-11eb-89b6-858ec838ea0a.png)
 
-Response from webservice: When we make an API call to our endpoint with sample data, we will see the inference output of the model.![image](https://user-images.githubusercontent.com/68206315/115102221-599bb780-9f41-11eb-89cd-3337f166c749.png)
+Response from webservice: When we make an API call to our endpoint with sample data, we will see the inference output of the model![image](https://user-images.githubusercontent.com/68206315/115140433-3b13ea00-a02f-11eb-9983-1ab60f2f6c46.png)
 
 ## Screen Recording
 
