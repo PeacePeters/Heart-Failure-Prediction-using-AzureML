@@ -149,7 +149,7 @@ AutoML Run Widget provides information about logs recorded in Run![image](https:
 
 AutoML experiment in Completed state with some model details![image](https://user-images.githubusercontent.com/68206315/115140343-b032ef80-a02e-11eb-87f2-19a13629aab8.png)
 
-Best Model![image](https://user-images.githubusercontent.com/68206315/115140211-081d2680-a02e-11eb-993a-395bfa2506b8.png)
+Best Model is VottingEnsemble with an AUC value of 0.92290![image](https://user-images.githubusercontent.com/68206315/115140211-081d2680-a02e-11eb-993a-395bfa2506b8.png)
 
 ![image](https://user-images.githubusercontent.com/68206315/115140235-2e42c680-a02e-11eb-928a-99a2d65317f0.png)
 
