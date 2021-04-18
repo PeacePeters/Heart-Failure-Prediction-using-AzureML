@@ -178,13 +178,15 @@ param_sampling = RandomParameterSampling( {
 })
 
 
-hyperdrive_run_config = HyperDriveConfig(run_config=estimator,
-                                         hyperparameter_sampling=param_sampling,
-                                         policy=early_termination_policy,
-                                         primary_metric_name='AUC_weighted',
-                                         primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
-                                         max_total_runs=20,
-                                         max_concurrent_runs=5)
+hyperdrive_run_config = HyperDriveConfig(
+                            run_config=estimator,
+                            hyperparameter_sampling=param_sampling,
+                            policy=early_termination_policy,
+                            primary_metric_name='AUC_weighted',
+                            primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
+                            max_total_runs=20,
+                            max_concurrent_runs=5
+)
 ```
 
 We applied a <b>bandit</b> early termination policy to evaluate our benchmark metric (AUC_weighted). The policy is chosen based on slack factor, avoids premature termination of first 5 runs, and then subsequently terminates runs whose primary metric fall outside of the top 10%. This helps to stop the training process after it starts degrading the AUC_weighted with increased iteration count, thereby improving computational efficiency.
