@@ -185,8 +185,8 @@ The SVM model achieved an AUC value of ```0.8166666666666667``` with the followi
 
 Hyperparameter | Value |
  | ------------- | -------------
-Regularization Strength (C) | 1.0
-Kernel | linear
+Regularization Strength (C) | 1.862243408964539
+Kernel | sigmoid
 
 ### Improvements for Hyperparameter Tuning
 
@@ -194,22 +194,20 @@ Kernel | linear
 * Adding more hyperparameters to be tuned can increase the model performance.
 * Increasing max total runs to try a lot more combinations of hyperparameters, though this could have an impact on cost and training duration. 
 
-Hyperdrive experiment in Running state with completed iterations and AUC value for each iteration![image](https://user-images.githubusercontent.com/68206315/115097262-04e84480-9f21-11eb-85f0-f16ca4de7395.png)
+Hyperdrive Run Widget provides information about logs recorded in the Run![image](https://user-images.githubusercontent.com/68206315/115134102-50741e80-a005-11eb-9260-1d1db8053fd3.png)
 
-Hyperdrive experiment in Completed state with the best model's hyperparameters![image](https://user-images.githubusercontent.com/68206315/115097163-770c5980-9f20-11eb-90aa-ef61d42c83ce.png)
+![image](https://user-images.githubusercontent.com/68206315/115134152-a779f380-a005-11eb-8cc5-f9738f7ec43a.png)
 
-![image](https://user-images.githubusercontent.com/68206315/115097192-9acf9f80-9f20-11eb-8493-48d1a31fcbd3.png)
+Hyperdrive experiment in Completed state with AUC value for each iteration![image](https://user-images.githubusercontent.com/68206315/115134142-903b0600-a005-11eb-9f74-35097de4e92b.png)
 
-Best-model![image](https://user-images.githubusercontent.com/68206315/115097444-31e92700-9f22-11eb-83a7-4d304d7a1f0e.png)
-
-Hyperdrive Widget![image](https://user-images.githubusercontent.com/68206315/115097417-fea69800-9f21-11eb-9772-ecfac1eee40a.png)
+Best model: After the successfuly run of the experiment, we have the best model with kernel type as Signoid and C value of 1.86![image](https://user-images.githubusercontent.com/68206315/115134297-e6f50f80-a006-11eb-8f5c-5397adbc5ee5.png)
 
 ## Automated ML and Hyperparameter Tuning Comparison
 
 Key | AutoML | Hyperdrive 
  | ------------- | ------------- | ------------- 
 AUC_weighed | VotingEnsemble with 0.9226 | SVM with 0.8167
-Duration | 42.13 minutes | 88 minutes
+Duration | 42.13 minutes | 88.73 minutes
 
 As shown in diagram, the VotingEnsemble model of AutoML performed better with an AUC value of 0.9226 compared to 0.8167 in Support Vector Machines through HyperDrive. So we will deploy the AutoML model.
 
@@ -226,13 +224,11 @@ The following steps are required to deploy a model using Azure SDK:
 
 #### Deployed model
 
-Successful model deployment![image](https://user-images.githubusercontent.com/68206315/115101958-ff4e2700-9f3f-11eb-9b73-2352690097a3.png)
-
-Azure ML studio visualization of deployed model![image](https://user-images.githubusercontent.com/68206315/115102007-5653fc00-9f40-11eb-91c5-e6770fe6af1c.png)
+Successful model deployment using ACI (Azure Container Instance) and enable Application Insights![image](https://user-images.githubusercontent.com/68206315/115101958-ff4e2700-9f3f-11eb-9b73-2352690097a3.png)
 
 Sampled input data![image](https://user-images.githubusercontent.com/68206315/115102101-d1b5ad80-9f40-11eb-96fd-7920d3e71764.png)
 
-Sample input data in following json structure to query the endpoint.
+Sample input data to query the endpoint
 
 ```ruby
 data = {
@@ -255,7 +251,7 @@ data = {
 }
 ```
 
-Response from webservice![image](https://user-images.githubusercontent.com/68206315/115102221-599bb780-9f41-11eb-89cd-3337f166c749.png)
+Response from webservice: When we make an API call to our endpoint with sample data, we will see the inference output of the model.![image](https://user-images.githubusercontent.com/68206315/115102221-599bb780-9f41-11eb-89cd-3337f166c749.png)
 
 ## Screen Recording
 
