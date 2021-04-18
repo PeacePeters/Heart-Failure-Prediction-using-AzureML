@@ -228,7 +228,7 @@ The following steps are required to deploy a model using Azure SDK:
 
 Successful model deployment using ACI (Azure Container Instance) and enable Application Insights![image](https://user-images.githubusercontent.com/68206315/115140378-e40e1500-a02e-11eb-9890-966ccfa2a257.png)
 
-![image](https://user-images.githubusercontent.com/68206315/115140385-f0926d80-a02e-11eb-939d-3c156ef29252.png)
+![image](https://user-images.githubusercontent.com/68206315/115143882-9c44b900-a041-11eb-9192-388cfa3f1285.png)
 
 Sample input data to query the endpoint
 
