@@ -85,14 +85,15 @@ automl_settings = {
     "primary_metric" : 'AUC_weighted'
 }
 
-automl_config = AutoMLConfig(compute_target=compute_target,
-                             task="classification",
-                             training_data=dataset,
-                             label_column_name="DEATH_EVENT",
-                             n_cross_validations=5,
-                             debug_log="automl_errors.log",
-                             **automl_settings
-                            )
+automl_config = AutoMLConfig(
+        compute_target=compute_target,
+        task="classification",
+        training_data=dataset,
+        label_column_name="DEATH_EVENT",
+        n_cross_validations=5,
+        debug_log="automl_errors.log",
+        **automl_settings
+)
 ```
 
 As shown in above code snippet, the AutoML settings are: 
