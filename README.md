@@ -25,7 +25,6 @@ This trained and deployed predictive model can potentially impact clinical pract
 10. [Citation](#Citation)
 
 ## Project Set Up and Installation
-
 To set this project, we require access to Azure ML Studio. The application flow for the project design is as follows:
 1. Create an Azure ML workspace with a compute instance.
 2. Create an Azure ML compute cluster.
