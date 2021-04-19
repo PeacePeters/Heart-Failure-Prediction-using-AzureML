@@ -1,30 +1,34 @@
 # Heart Failure Prediction using AzureML
 
+## Table of Contents
+
+1. [Introduction](#Introduction)
+2. [Project Set Up and Installation](#Project-Set-Up-and-Installation)
+3. [Dataset](#Dataset)
+   * [Overview](#Overview)
+   * [Task](#Task)
+   * [Access](#Access)
+4. [Automated ML](#Automated-ML)
+   * [Results](#Results)
+   * [Improvements for AutoML](#Improvements-for-AutoML)
+5. [Hyperparameter Tuning](#Hyperparameter-Tuning)
+   * [Results](#Results)
+   * [Improvements for Hyperparameter Tuning](#Improvements-for-Hyperparameter-Tuning)
+6. [Automated ML and Hyperparameter Tuning Comparison](#Automated-ML-and-Hyperparameter-Tuning-Comparison)
+7. [Model Deployment](#Model-Deployment)
+8. [Screen Recording](#Screen-Recording)
+9. [Future Improvements](#Future-Improvements)
+10. [Standout Suggestions](#Standout-Suggestions)
+11. [Citation](#Citation)
+
+## Introduction
 
 In this project, we demonstrate how to use the Azure ML Python SDK to train a model to predict mortality due to heart failure using Azure AutoML and Hyperdrive services. After training, we are going to deploy the best model and evaluate the model endpoint by consuming it. 
 
 This trained and deployed predictive model can potentially impact clinical practice, becoming a new supporting tool for physicians when assessing the increased risk of mortality among heart failure patients.
 
-## Table of Contents
-1. [Project Set Up and Installation](#Project-Set-Up-and-Installation)
-2. [Dataset](#Dataset)
-   * [Overview](#Overview)
-   * [Task](#Task)
-   * [Access](#Access)
-3. [Automated ML](#Automated-ML)
-   * [Results](#Results)
-   * [Improvements for AutoML](#Improvements-for-AutoML)
-4. [Hyperparameter Tuning](#Hyperparameter-Tuning)
-   * [Results](#Results)
-   * [Improvements for Hyperparameter Tuning](#Improvements-for-Hyperparameter-Tuning)
-5. [Automated ML and Hyperparameter Tuning Comparison](#Automated-ML-and-Hyperparameter-Tuning-Comparison)
-6. [Model Deployment](#Model-Deployment)
-7. [Screen Recording](#Screen-Recording)
-8. [Future Improvements](#Future-Improvements)
-9. [Standout Suggestions](#Standout-Suggestions)
-10. [Citation](#Citation)
-
 ## Project Set Up and Installation
+
 To set this project, we require access to Azure ML Studio. The application flow for the project design is as follows:
 1. Create an Azure ML workspace with a compute instance.
 2. Create an Azure ML compute cluster.
@@ -33,7 +37,9 @@ To set this project, we require access to Azure ML Studio. The application flow 
 5. All instructions to run the cells are detailed in the notebooks.
 
 ## Dataset
+
 ### Overview
+
 The Heart [Heart Failure Prediction](https://archive.ics.uci.edu/ml/datasets/Heart+failure+clinical+records) dataset is used for assessing the severity of patients with heart failure. It contains the medical records of 299 heart failure patients collected at the Faisalabad Institute of Cardiology and at the Allied Hospital in Faisalabad (Punjab, Pakistan), during April–December 2015. The patients, who are aged 40 years and above, comprise of 105 women and 194 men who have all previously had heart failures.
 
 The dataset contains 13 features, which report clinical, body, and lifestyle information and is use as the training data for predicting heart failure risks. Regarding the dataset imbalance, the survived patients (death event = 0) are 203, while the dead patients (death event = 1) are 96. 
