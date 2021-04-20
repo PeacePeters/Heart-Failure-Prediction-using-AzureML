@@ -1,5 +1,11 @@
 # Heart Failure Prediction using AzureML
 
+## Introduction
+
+In this project, we demonstrate how to use the Azure ML Python SDK to train a model to predict mortality due to heart failure using Azure AutoML and Hyperdrive services. After training, we are going to deploy the best model and evaluate the model endpoint by consuming it. 
+
+This trained and deployed predictive model can potentially impact clinical practice, becoming a new supporting tool for physicians when assessing the increased risk of mortality among heart failure patients.
+
 ## Table of Contents
 
 1. [Introduction](#Introduction)
@@ -20,12 +26,6 @@
 9. [Future Improvements](#Future-Improvements)
 10. [Standout Suggestions](#Standout-Suggestions)
 11. [Citation](#Citation)
-
-## Introduction
-
-In this project, we demonstrate how to use the Azure ML Python SDK to train a model to predict mortality due to heart failure using Azure AutoML and Hyperdrive services. After training, we are going to deploy the best model and evaluate the model endpoint by consuming it. 
-
-This trained and deployed predictive model can potentially impact clinical practice, becoming a new supporting tool for physicians when assessing the increased risk of mortality among heart failure patients.
 
 ## Project Set Up and Installation
 
