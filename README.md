@@ -131,10 +131,10 @@ Parameters | Values |
 ccp_alpha | 0.0
 criterion | mse
 init | None
-learning_rate': 0.021544346900318822
+learning_rate | 0.021544346900318822
 loss | deviance
 max_depth | 8
-max_features 0.5
+max_features | 0.5
 max_leaf_nodes | None
 min_impurity_decrease | 0.0
 min_impurity_split | None
