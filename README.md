@@ -56,7 +56,7 @@ The objective of the task is to train a binary classification model that predict
 2. _Anaemia_: Decrease of red blood cells or hemoglobin. It has a value of 1 or 0 with 1 being the patient does have this condition
 3. *Creatinine Phosphokinase*: Level of the CPK enzyme in the blood (mcg/L)
 4. _Diabetes_:  Is a 1 or 0 - whether the patient suffers from diabetes or not 
-5. **Ejection Fraction__: Percentage of blood leaving the heart at each contraction (percentage)
+5. *Ejection Fraction*: Percentage of blood leaving the heart at each contraction (percentage)
 6. _High Blood Pressure_: Is a 1 or 0 - If the patient has hypertension 
 7. *Platelets*: Platelets in the blood (kiloplatelets/mL) 
 8. _Serum Creatinine_: Level of serum creatinine in the blood (mg/dL)
