@@ -56,7 +56,7 @@ The objective of the task is to train a binary classification model that predict
 2. _Anaemia_: Decrease of red blood cells or hemoglobin. It has a value of 1 or 0 with 1 being the patient does have this condition
 3. *Creatinine Phosphokinase*: Level of the CPK enzyme in the blood (mcg/L)
 4. _Diabetes_:  Is a 1 or 0 - whether the patient suffers from diabetes or not 
-5. *Ejection Fraction_: Percentage of blood leaving the heart at each contraction (percentage)
+5. **Ejection Fraction__: Percentage of blood leaving the heart at each contraction (percentage)
 6. _High Blood Pressure_: Is a 1 or 0 - If the patient has hypertension 
 7. *Platelets*: Platelets in the blood (kiloplatelets/mL) 
 8. _Serum Creatinine_: Level of serum creatinine in the blood (mg/dL)
@@ -110,13 +110,13 @@ As shown in above code snippet, the AutoML settings are:
 
 ### Results
 
-The Best model is ```VotingEnsemble``` with an AUC value of ```0.9229042081949059```
+The Best model is `VotingEnsemble` with an AUC value of `0.9229042081949059`
 
 Model hyper-parameters used for VotingEnsemble are shown below:
 
 The parameters for the model VotingEnsemble are described in the table below:
 
-```StandardScalerWrapper```
+`StandardScalerWrapper`
 Parameters | Values |
  | ------------- | -------------
 class_name | StandardScaler
@@ -125,7 +125,7 @@ module_name | sklearn.preprocessing._data
 with_mean | True
 with_std | False
 
-```GradientBoostingClassifier```
+`GradientBoostingClassifier`
 Parameters | Values |
  | ------------- | -------------
 ccp_alpha | 0.0
@@ -175,7 +175,7 @@ The hyperparameters tuned are inverse regularization strength -C and the kernel 
 
 Parameter search space and Hyperdrive configuration.
 
-```ruby
+```python
 param_sampling = RandomParameterSampling( {
         "--kernel": choice('linear', 'rbf', 'poly', 'sigmoid'),
         "--C": loguniform(0.5, 1.0)
@@ -197,7 +197,7 @@ We applied a <b>bandit</b> early termination policy to evaluate our benchmark me
 
 ### Results
 
-The SVM model achieved an AUC value of ```0.8333333333333334``` with the following parameters:
+The SVM model achieved an AUC value of `0.8333333333333334` with the following parameters:
 
 Hyperparameter | Value |
  | ------------- | -------------
@@ -236,7 +236,7 @@ The following steps are required to deploy a model using Azure SDK:
 2. Find the best model using Automl
 3. Use the environment of automl's best_run or create a custom environment
 4. Use the score.py file generated when the model is trained for deployment and evaluation. The scoring script describes the input data the model endpoint accepts. 
-5. Deploy the model using any of the deployment choices - ACI, AKS or local. For our project, we deploy the model as webservice using Azure Container Instance with ```cpu_cores = 1```, ```memory_gb = 1``` and application insights enabled.
+5. Deploy the model using any of the deployment choices - ACI, AKS or local. For our project, we deploy the model as webservice using Azure Container Instance with `cpu_cores = 1`, `memory_gb = 1` and application insights enabled.
 6. For inferencing, pass the sample test data in json format to model endpoint to test the webservice. This will be processed by the score.py file to make successful rest api call.
 
 #### Deployed model
