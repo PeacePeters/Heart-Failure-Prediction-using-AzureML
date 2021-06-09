@@ -42,7 +42,7 @@ To set this project, we require access to Azure ML Studio. The application flow 
 
 The [Heart Failure Prediction](https://archive.ics.uci.edu/ml/datasets/Heart+failure+clinical+records) dataset is used for assessing the severity of patients with heart failure. It contains the medical records of 299 heart failure patients collected at the Faisalabad Institute of Cardiology and at the Allied Hospital in Faisalabad (Punjab, Pakistan), during April–December 2015. The patients, who are aged 40 years and above, comprise of 105 women and 194 men who have all previously had heart failures.
 
-The dataset contains 13 features, which report clinical, body, and lifestyle information and is use as the training data for predicting heart failure risks. Regarding the dataset imbalance, the survived patients (death event = 0) are `203`, while the dead patients (death event = 1) are ```96```. 
+The dataset contains 13 features, which report clinical, body, and lifestyle information and is use as the training data for predicting heart failure risks. Regarding the dataset imbalance, the survived patients (death event = 0) are `203`, while the dead patients (death event = 1) are `96`. 
 
 Additional information about this dataset can be found in the original dataset curators [publication](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0181001).
 
@@ -52,10 +52,10 @@ The task here is to predict mortality due to heart failure. Heart failure is a c
 
 The objective of the task is to train a binary classification model that predict the target column <b>DEATH_EVENT</b>, which indicates if a heart failure patient will survive or not before the end of the follow-up period. This is based on the information provided by the 11 clinical features (or risk factors). The <b>time</b> feature is dropped before training since we cannot get a time value for new patients after deployment. The predictors variables are as follows:
 
-1. Age: age of patient (years)
-2. Anaemia: Decrease of red blood cells or hemoglobin. It has a value of 1 or 0 with 1 being the patient does have this condition
-3. Creatinine Phosphokinase: Level of the CPK enzyme in the blood (mcg/L)
-4. Diabetes:  Is a 1 or 0 - whether the patient suffers from diabetes or not 
+1. *Age*: age of patient (years)
+2. _Anaemia_: Decrease of red blood cells or hemoglobin. It has a value of 1 or 0 with 1 being the patient does have this condition
+3. *Creatinine Phosphokinase*: Level of the CPK enzyme in the blood (mcg/L)
+4. _Diabetes_:  Is a 1 or 0 - whether the patient suffers from diabetes or not 
 5. Ejection Fraction: Percentage of blood leaving the heart at each contraction (percentage)
 6. High Blood Pressure: Is a 1 or 0 - If the patient has hypertension 
 7. Platelets: Platelets in the blood (kiloplatelets/mL) 
@@ -247,7 +247,7 @@ Successful model deployment using ACI (Azure Container Instance) and Application
 
 Sample input data to query the endpoint
 
-```ruby
+```python
 data = {
     "data":
     [
