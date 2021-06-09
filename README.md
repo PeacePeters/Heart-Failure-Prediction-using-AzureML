@@ -247,7 +247,7 @@ Successful model deployment using ACI (Azure Container Instance) and Application
 
 Sample input data to query the endpoint
 
-```python
+```ruby
 data = {
     "data":
     [
