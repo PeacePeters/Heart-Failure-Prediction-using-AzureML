@@ -56,18 +56,18 @@ The objective of the task is to train a binary classification model that predict
 2. _Anaemia_: Decrease of red blood cells or hemoglobin. It has a value of 1 or 0 with 1 being the patient does have this condition
 3. *Creatinine Phosphokinase*: Level of the CPK enzyme in the blood (mcg/L)
 4. _Diabetes_:  Is a 1 or 0 - whether the patient suffers from diabetes or not 
-5. Ejection Fraction: Percentage of blood leaving the heart at each contraction (percentage)
-6. High Blood Pressure: Is a 1 or 0 - If the patient has hypertension 
-7. Platelets: Platelets in the blood (kiloplatelets/mL) 
-8. Serum Creatinine: Level of serum creatinine in the blood (mg/dL)
-9. Serum Sodium: Level of serum sodium in the blood (mEq/L)
-10. Sex: Woman or man (binary)
-11. Smoking: If the patient smokes or not
-12. Time: Follow-up period (days)
+5. *Ejection Fraction_: Percentage of blood leaving the heart at each contraction (percentage)
+6. _High Blood Pressure_: Is a 1 or 0 - If the patient has hypertension 
+7. *Platelets*: Platelets in the blood (kiloplatelets/mL) 
+8. _Serum Creatinine_: Level of serum creatinine in the blood (mg/dL)
+9. *Serum Sodium*: Level of serum sodium in the blood (mEq/L)
+10. _Sex_: Woman or man (binary)
+11. *Smoking*: If the patient smokes or not
+12. _Time_: Follow-up period (days)
 
 Target variable - Death Event: If the patient died during the follow-up period
 
-Death Event = 1 for dead patients and Death Event = 0 for survived patients
+`Death Event = 1` for dead patients and `Death Event = 0` for survived patients
 
 ### Access
 
@@ -82,7 +82,7 @@ The data for this project can be accessed in our workspace through the following
 ## Automated ML
 
 We have used following configuration for AutoML.
-```ruby
+```python
 automl_settings = {
     "experiment_timeout_minutes": 30,
     "max_concurrent_iterations": 5,
